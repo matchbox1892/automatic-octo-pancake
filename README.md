@@ -7,9 +7,15 @@ This repository tracks the static export of the narrative generator that origina
 - `soapcr.com/public/` – Supporting images, scripts, and styles used by the legacy interface.
 - `soapcr.com/favicon-*.png` – Favicon set referenced by the original site.
 
-## Next steps
-1. Review the UI assets inside `soapcr.com/public/` to identify the components that need to be restyled or removed.
-2. Modernize the layout (for example by introducing a design system or updating to a newer CSS framework).
-3. Customize the narrative templates and protocol language so they match your EMS workflow.
+## Modern rebuild strategy
+The legacy site is driven by a single HTML document and jQuery helpers, which makes customization and UI refreshes difficult. A
+ detailed modernization plan that maps out the migration to a React/Next.js stack with a Git-backed GUI editor (Decap/Netlify C
+MS) is available in [`docs/modernization-plan.md`](docs/modernization-plan.md). The document covers:
 
-With the archived source now version-controlled, future changes can be developed locally, tested, and pushed through pull requests.
+- Current architecture findings (monolithic DOM, jQuery event handlers, authentication utilities).
+- Recommended technology stack (Next.js, Tailwind, React Hook Form, Zustand, Handlebars-based narrative templates).
+- A GUI editing workflow powered by a `/admin` CMS that writes YAML/JSON configuration to version control.
+- A phased roadmap for rebuilding the application while keeping feature parity with the existing generator.
+
+Use the plan as the source of truth while duplicating the MatchCloud narrative generator in a modern, easily customizable forma
+t.
