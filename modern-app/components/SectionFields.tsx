@@ -2,6 +2,7 @@
 
 import { Controller, useFieldArray, useFormContext } from "react-hook-form";
 import type { NarrativeFormData } from "@/lib/form-schema";
+import { useFieldSync } from "@/lib/useFieldSync";
 import type { ArrayField, Field, Section } from "@/lib/types";
 
 function FieldHelp({ helperText }: { helperText?: string }) {
@@ -203,6 +204,16 @@ function renderField(field: Field, path: string) {
 }
 
 export function SectionFields({ section, basePath }: { section: Section; basePath: string }) {
+  const form = useFormContext<NarrativeFormData>();
+
+  useFieldSync({
+    sectionId: section.id,
+    watch: form.watch,
+    getValues: form.getValues,
+    setValue: form.setValue,
+    enabled: section.id === "incident" || section.id === "patient"
+  });
+
   return (
     <div className="space-y-6">
       {section.fields.map((field) => (
