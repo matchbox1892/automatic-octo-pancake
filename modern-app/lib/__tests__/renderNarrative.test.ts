@@ -3,12 +3,12 @@ import { renderNarrative } from "@/lib/renderNarrative";
 import { defaultFormValues } from "@/lib/default-values";
 
 describe("renderNarrative", () => {
-  it("omits empty sentences", () => {
+  it("returns section headings when empty", () => {
     const narrative = renderNarrative(defaultFormValues);
-    expect(narrative).toBe("");
+    expect(narrative).toBe("S:\n\nO:\n\nA:\n\nP:");
   });
 
-  it("includes populated content", () => {
+  it("formats populated content in SOAP order", () => {
     const data = {
       ...defaultFormValues,
       subjective: {
@@ -43,8 +43,16 @@ describe("renderNarrative", () => {
     };
 
     const narrative = renderNarrative(data);
-    expect(narrative).toContain("Chief complaint: Chest pain.");
-    expect(narrative).toContain("Vitals: 14:32 - HR 88, BP 126/82, RR 18, SpO₂ 98%.");
-    expect(narrative).toContain("Transport mode: ALS to Meritus Medical Center.");
+    const sections = narrative.split("\n\n");
+    expect(sections[0]).toBe(
+      "S: Pt's chief complaint is chest pain. Pertinent symptoms include shortness of breath. Pain rated 6/10."
+    );
+    expect(sections[1]).toBe(
+      "O: Primary impression: Cardiac. Vitals: 14:32 - HR 88, BP 126/82, RR 18, SpO₂ 98%."
+    );
+    expect(sections[2]).toBe("A: Likely ACS.");
+    expect(sections[3]).toBe(
+      "P: Treatments provided include aspirin. Transported ALS to Meritus Medical Center."
+    );
   });
 });

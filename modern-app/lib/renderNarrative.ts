@@ -18,6 +18,19 @@ function resolveOptionLabel(
   return value;
 }
 
+function sanitizeFreeText(value: string): string {
+  return value.replace(/\s+/g, " ").trim();
+}
+
+function stripSentence(value: string): string {
+  return sanitizeFreeText(value).replace(/[.!?]+$/u, "");
+}
+
+function lowercaseFirst(value: string): string {
+  if (!value) return "";
+  return value.charAt(0).toLowerCase() + value.slice(1);
+}
+
 function buildList(
   sectionId: string,
   fieldId: string,
@@ -60,46 +73,133 @@ function formatVitals(formData: NarrativeFormData["objective"]["vitals"]): strin
 
 const compiledSections = soapTemplate.sections.map((section) => ({
   ...section,
-  compile: Handlebars.compile(section.template.trim())
+  compile: Handlebars.compile(section.template)
 }));
 
 export function renderNarrative(formData: NarrativeFormData): string {
+  const subjectiveChiefComplaint = lowercaseFirst(
+    stripSentence(formData.subjective.chiefComplaint)
+  );
+  const subjectiveHistoryProvider = formData.subjective.historyProvider
+    ? resolveOptionLabel(
+        "subjective",
+        "historyProvider",
+        formData.subjective.historyProvider
+      ).toLowerCase()
+    : "";
+  const subjectiveSymptoms = buildList(
+    "subjective",
+    "symptoms",
+    formData.subjective.symptoms
+  ).toLowerCase();
+  const subjectivePainScale = stripSentence(formData.subjective.painScale);
+  const subjectiveNotes = sanitizeFreeText(formData.subjective.notes);
+  const subjectiveHasNarrative = Boolean(
+    subjectiveChiefComplaint ||
+      subjectiveHistoryProvider ||
+      subjectiveSymptoms ||
+      subjectivePainScale
+  );
+
+  const objectivePrimaryImpression = formData.objective.primaryImpression
+    ? `Primary impression: ${resolveOptionLabel(
+        "objective",
+        "primaryImpression",
+        formData.objective.primaryImpression
+      )}`
+    : "";
+  const objectiveSecondaryImpression = stripSentence(
+    formData.objective.secondaryImpression
+  );
+  const objectiveVitals = formatVitals(formData.objective.vitals ?? []);
+  const objectiveNotes = sanitizeFreeText(formData.objective.objectiveNotes);
+  const objectiveHasNarrative = Boolean(
+    objectivePrimaryImpression ||
+      objectiveSecondaryImpression ||
+      objectiveVitals
+  );
+
+  const assessmentSummary = stripSentence(formData.assessment.summary);
+  const assessmentDifferential = stripSentence(
+    formData.assessment.differential
+  );
+  const assessmentFindings = buildList(
+    "assessment",
+    "clinicalFindings",
+    formData.assessment.clinicalFindings
+  ).toLowerCase();
+
+  const planTreatments = buildList(
+    "plan",
+    "treatments",
+    formData.plan.treatments
+  ).toLowerCase();
+  const planMode = formData.plan.transportMode
+    ? resolveOptionLabel("plan", "transportMode", formData.plan.transportMode)
+    : "";
+  const planDestination = sanitizeFreeText(formData.plan.destination);
+  let planTransportNarrative = "";
+  if (planMode || planDestination) {
+    if (planMode.toLowerCase() === "refused transport") {
+      planTransportNarrative = "Refused transport";
+    } else {
+      const segments = [planMode, planDestination && `to ${planDestination}`]
+        .filter(Boolean)
+        .join(" ")
+        .trim();
+      if (segments) {
+        planTransportNarrative = `Transported ${segments}`.trim();
+      }
+    }
+  }
+  const planMileage = sanitizeFreeText(formData.plan.mileage);
+  const planNotes = sanitizeFreeText(formData.plan.planNotes);
+  const planHasNarrative = Boolean(
+    planTreatments || planTransportNarrative || planMileage
+  );
+
   const context = {
     ...formData,
     subjective: {
       ...formData.subjective,
-      historyProvider: formData.subjective.historyProvider
-        ? resolveOptionLabel("subjective", "historyProvider", formData.subjective.historyProvider)
-        : "",
-      symptomsList: buildList("subjective", "symptoms", formData.subjective.symptoms)
+      chiefComplaintText: subjectiveChiefComplaint,
+      historyProviderText: subjectiveHistoryProvider,
+      symptomsList: subjectiveSymptoms,
+      painScaleText: subjectivePainScale,
+      notes: subjectiveNotes,
+      hasNarrative: subjectiveHasNarrative
     },
     objective: {
       ...formData.objective,
-      primaryImpression: formData.objective.primaryImpression
-        ? resolveOptionLabel("objective", "primaryImpression", formData.objective.primaryImpression)
-        : "",
-      vitalsList: formatVitals(formData.objective.vitals ?? [])
+      primaryImpressionText: objectivePrimaryImpression,
+      secondaryImpressionText: objectiveSecondaryImpression,
+      vitalsList: objectiveVitals,
+      objectiveNotes: objectiveNotes,
+      hasNarrative: objectiveHasNarrative
     },
     assessment: {
       ...formData.assessment,
-      clinicalFindingsList: buildList("assessment", "clinicalFindings", formData.assessment.clinicalFindings)
+      summaryText: assessmentSummary,
+      differentialText: assessmentDifferential,
+      clinicalFindingsList: assessmentFindings
     },
     plan: {
       ...formData.plan,
-      transportMode: formData.plan.transportMode
-        ? resolveOptionLabel("plan", "transportMode", formData.plan.transportMode)
-        : "",
-      treatmentsList: buildList("plan", "treatments", formData.plan.treatments)
+      treatmentsList: planTreatments,
+      transportNarrative: planTransportNarrative,
+      mileageText: planMileage,
+      planNotes: planNotes,
+      hasNarrative: planHasNarrative
     }
   };
 
   const sectionsOutput = compiledSections
     .map((section) => {
       const result = section.compile(context).trim();
-      if (!result) {
-        return "";
+      if (result) {
+        return `${section.heading} ${result}`.trimEnd();
       }
-      return `${section.heading}\n${result}`.trim();
+      return section.heading;
     })
     .filter(Boolean);
 

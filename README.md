@@ -45,5 +45,5 @@ Key folders:
 ### Quality gates
 
 - `npm run lint` – ESLint/TypeScript validation through Next.js.
-- `npm run test` – Vitest coverage for narrative rendering.
+- `npm run test` – Vitest coverage for narrative rendering plus a parity check against the archived legacy SOAP generator.
 - Real-time debug panel and modernization checkpoints inside the app ensure each phase is functioning before moving forward.
