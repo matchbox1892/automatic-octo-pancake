@@ -3,7 +3,7 @@
 This repository tracks the static export of the narrative generator that originated on SOAPCR.com and is now hosted at MatchCloud.net.  The files were captured with the Archivarix CMS and the website assets live under [`soapcr.com/`](soapcr.com/) within this repository, including the HTML entry point, jQuery dependencies, and the JavaScript/CSS bundles that power the report builder.
 
 ## Repository layout
-- `soapcr.com/index.html` – Main landing page for the generator UI.
+- `soapcr.com/index.html` – Main landing page for the generator UI (now streamlined for SOAP-only narratives).
 - `soapcr.com/public/` – Supporting images, scripts, and styles used by the legacy interface.
 - `soapcr.com/favicon-*.png` – Favicon set referenced by the original site.
 

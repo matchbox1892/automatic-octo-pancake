@@ -7,9 +7,6 @@
 $(function() {
 	// close all of the main sections
 	assCollapseAll();
-	hideDiv('divIncident');
-	hideDiv('divPatient');
-	hideDiv('divInsurance');
 	
 	// any click in the report will trigger a GA event to start the report
 	$('.groupdivision').click(function() {
@@ -1019,7 +1016,7 @@ function divSetCollapse (id, intention) {
 }
 //collapse all division headers
 function divCollapseAll () {
-	var divarr = ['divIncident','divPatient','divInsurance','divX2','divX3','divX4','divX5','divX6'];
+        var divarr = ['divX2','divX3','divX4','divX5','divX6'];
 	for (var i=0; i<divarr.length; i++) {
 		hideDiv(divarr[i]);
 	}
@@ -1027,7 +1024,7 @@ function divCollapseAll () {
 
 //expand all division headers
 function divExpandAll () {
-	var divarr = ['divIncident','divPatient','divInsurance','divX2','divX3','divX4','divX5','divX6'];
+        var divarr = ['divX2','divX3','divX4','divX5','divX6'];
 	for (var i=0; i<divarr.length; i++) {
 		showDiv(divarr[i]);
 	}
