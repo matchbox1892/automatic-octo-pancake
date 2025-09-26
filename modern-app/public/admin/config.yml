@@ -1,0 +1,99 @@
+backend:
+  name: git-gateway
+  branch: work
+local_backend: true
+media_folder: public/uploads
+public_folder: /uploads
+site_url: https://matchcloud.net
+collections:
+  - name: sections
+    label: SOAP Sections
+    label_singular: SOAP Section
+    folder: content/sections
+    extension: json
+    format: json
+    create: true
+    slug: "{{fields.id}}"
+    fields:
+      - label: Section ID
+        name: id
+        widget: string
+      - label: Title
+        name: title
+        widget: string
+      - label: Description
+        name: description
+        widget: text
+        required: false
+      - label: Fields
+        name: fields
+        widget: list
+        summary: "{{fields.label}} ({{fields.type}})"
+        fields:
+          - { label: Field ID, name: id, widget: string }
+          - { label: Label, name: label, widget: string }
+          - label: Field Type
+            name: type
+            widget: select
+            options:
+              - { label: Text, value: text }
+              - { label: Multiline Text, value: textarea }
+              - { label: Number, value: number }
+              - { label: Select, value: select }
+              - { label: Checkbox, value: checkbox }
+              - { label: Checkbox Group, value: checkbox-group }
+              - { label: Radio Group, value: radio }
+              - { label: Time, value: time }
+              - { label: Date, value: date }
+              - { label: Array (Nested Items), value: array }
+          - { label: Placeholder, name: placeholder, widget: string, required: false }
+          - { label: Helper Text, name: helperText, widget: text, required: false }
+          - { label: Rows, name: rows, widget: number, required: false, value_type: int }
+          - label: Options
+            name: options
+            widget: list
+            required: false
+            fields:
+              - { label: Option Label, name: label, widget: string }
+              - { label: Option Value, name: value, widget: string }
+          - label: Item Fields
+            name: itemFields
+            widget: list
+            required: false
+            summary: "{{fields.label}}"
+            fields:
+              - { label: Field ID, name: id, widget: string }
+              - { label: Label, name: label, widget: string }
+              - label: Field Type
+                name: type
+                widget: select
+                options:
+                  - { label: Text, value: text }
+                  - { label: Multiline Text, value: textarea }
+                  - { label: Number, value: number }
+                  - { label: Select, value: select }
+                  - { label: Checkbox, value: checkbox }
+                  - { label: Checkbox Group, value: checkbox-group }
+                  - { label: Radio Group, value: radio }
+                  - { label: Time, value: time }
+                  - { label: Date, value: date }
+              - { label: Placeholder, name: placeholder, widget: string, required: false }
+              - { label: Helper Text, name: helperText, widget: text, required: false }
+  - name: narratives
+    label: Narrative Templates
+    label_singular: Narrative Template
+    folder: content/narratives
+    extension: json
+    format: json
+    create: true
+    slug: "{{fields.id}}"
+    fields:
+      - { label: Template ID, name: id, widget: string }
+      - label: Sections
+        name: sections
+        widget: list
+        summary: "{{fields.heading}} section"
+        fields:
+          - { label: Section ID, name: id, widget: string }
+          - { label: Heading Prefix, name: heading, widget: string }
+          - { label: Handlebars Template, name: template, widget: text }

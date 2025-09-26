@@ -42,6 +42,23 @@ Key folders:
 - `lib/` – Form schemas, Zustand store, content loader, and narrative rendering utilities.
 - `app/` – Next.js App Router entry point powering the new UI.
 
+### GUI content editing
+
+To allow non-developers to tailor checkbox labels, prompts, and narrative wording, the modern app ships with a Decap (Netlify) CMS instance at `/admin`.
+
+1. Run the development server and local CMS backend:
+
+   ```bash
+   cd modern-app
+   npm install
+   npm run cms
+   npm run dev
+   ```
+
+2. Visit `http://localhost:3000/admin` to open the editor. The CMS surfaces the SOAP section JSON files and the narrative templates. Editors can add/remove fields, tweak option labels, and rewrite Handlebars templates without touching source code. Changes are committed back to Git so they can be reviewed like any other code change.
+
+Media assets uploaded through the CMS are stored under `modern-app/public/uploads/` and served from `/uploads` when the Next.js app is deployed.
+
 ### Quality gates
 
 - `npm run lint` – ESLint/TypeScript validation through Next.js.
