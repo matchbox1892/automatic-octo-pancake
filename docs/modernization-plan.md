@@ -13,6 +13,7 @@ We want a responsive application that:
 - Supports theme and layout overrides without touching DOM selectors directly.
 - Lets narrative text blocks, pick-list options, and protocol templates be edited by EMS staff in a secure, browser-based GUI.
 - Captures state in a predictable store that can be exported as printable narrative text or JSON for downstream systems.
+- Duplicates the checkbox- and select-driven UX that currently produces the SOAP narrative so existing crews can generate reports without retraining.
 
 ## 3. Proposed architecture
 | Concern | Decision | Rationale |
@@ -38,6 +39,14 @@ We want a responsive application that:
 5. Provide a “Preview Mode” in the CMS that renders the React components with live data, giving editors immediate visual feedback.
 
 This approach avoids hosting another external CMS while satisfying the GUI requirement. If a self-hosted database-backed solution is preferred, the same content model can be implemented in Directus or Strapi with minimal code changes because the front-end reads from a typed interface.
+
+## 5. Functional parity goals
+The rebuilt application must match today’s feature set before any enhancements ship:
+
+- **Full narrative coverage:** Every checkbox, radio button, select list, and free-text box from the legacy generator maps to a React component with the same default values, validation, and conditional visibility. Narrative templates must consume the same inputs so the generated SOAP text remains identical unless intentionally reworded.
+- **Dynamic list behaviour:** Personnel tables, vitals, medications, and interventions still support add/remove row actions, autosorted timestamps, and cloning patterns present in `soapcrpro.js`. Unit tests should cover the transformation from UI selections into structured narrative data.
+- **Export fidelity:** Provide “Copy narrative,” printable report layouts, and CSV/JSON exports that mirror the Archivarix build so reports can be pasted into existing ePCR systems without formatting adjustments.
+- **Authentication & session flow:** Preserve the login-gated experience (Cloudflare Access or future identity provider) and carry over session timeout warnings, ensuring the tool remains private while preventing data loss.
 
 ## 5. Data model blueprint
 Each section will have a normalized schema. Example YAML structures:
@@ -90,7 +99,7 @@ The React application will load these documents through a typed content loader, 
 - **User feedback:** Display inline validation, autosave status, and summary cards (e.g., incident quick view) using toast/snackbar components.
 - **Export workflows:** Provide PDF/print exports via browser print styles and a “Copy narrative” button tied to the template engine output.
 
-## 7. Migration roadmap
+## 6. Migration roadmap
 1. **Inventory** – Catalogue current fields, options, and business rules by exporting them into structured YAML/JSON (can be scripted by parsing the existing DOM or manually curated).
 2. **Set up Next.js workspace** – Initialize the new app (`modern-app/`), configure TypeScript, Tailwind, ESLint, Prettier, Jest, and Playwright.
 3. **Build content loader** – Implement a content abstraction (`loadContent('incident')`) that loads YAML/JSON and exposes typed interfaces.
@@ -102,16 +111,23 @@ The React application will load these documents through a typed content loader, 
 9. **Deployment** – Configure Vercel (for Next.js) or similar hosting with preview environments on pull requests. Set up CI to run lint/tests and build the static export.
 10. **Cutover** – Run side-by-side UAT with EMS staff, validate narratives, then update DNS to point to the modern build.
 
-## 8. Deliverables checklist
+## 7. Deliverables checklist
 - `modern-app/` Next.js project with modular components and narrative engine.
 - `content/` directory hosting YAML/JSON data managed via Decap CMS (`/admin`).
 - Automated testing suite covering core workflows.
 - Documentation for editors (CMS usage, previewing, publishing) and developers (component architecture, data contracts).
 - Migration scripts or manual mapping notes aligning every old DOM ID to a new schema key.
 
-## 9. Supporting documentation to add next
+## 8. Supporting documentation to add next
 - Field inventory spreadsheet exported from the legacy DOM (to drive content creation).
 - Narrative template reference mapping current auto-generated phrasing to Handlebars templates.
 - CMS user guide with screenshots and role-based access notes.
 
-This roadmap balances modern engineering practices with the requirement for a GUI-driven editing experience, paving the way to reproduce the current MatchCloud narrative generator in a customizable, future-proof stack.
+## 9. Future enhancements roadmap
+Once feature parity is achieved, plan the following incremental upgrades:
+
+1. **Automated mileage calculation:** Integrate the Google Maps Distance Matrix API (or an equivalent provider) to compute round-trip mileage between the incident address and Meritus Medical Center in Hagerstown, MD. Store API credentials in server-side environment variables and surface the calculated mileage as read-only fields that can be overridden manually when required.
+2. **AI-assisted narrative polishing:** Add an optional “Refine with GPT” action that submits the generated SOAP narrative to the OpenAI ChatGPT API for grammar and phrasing suggestions. Respect HIPAA by stripping identifiers before sending any text to the API, log activity for auditing, and give users a diff/preview before accepting the AI-edited copy.
+3. **Protocol-localization presets:** Package content bundles (checkbox labels, templates, default vitals ranges) tied to local EMS protocols so agencies can switch configurations without redeploying code.
+
+This roadmap balances modern engineering practices with the requirement for a GUI-driven editing experience, paving the way to reproduce the current MatchCloud narrative generator in a customizable, future-proof stack while leaving space for targeted enhancements like mileage automation and GPT-powered copy support.

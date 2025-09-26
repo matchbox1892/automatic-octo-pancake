@@ -15,7 +15,10 @@ MS) is available in [`docs/modernization-plan.md`](docs/modernization-plan.md). 
 - Current architecture findings (monolithic DOM, jQuery event handlers, authentication utilities).
 - Recommended technology stack (Next.js, Tailwind, React Hook Form, Zustand, Handlebars-based narrative templates).
 - A GUI editing workflow powered by a `/admin` CMS that writes YAML/JSON configuration to version control.
-- A phased roadmap for rebuilding the application while keeping feature parity with the existing generator.
+- Functional parity checkpoints ensuring the rebuilt experience duplicates every checkbox-driven workflow that feeds the SOAP n
+arrative engine.
+- A phased roadmap for rebuilding the application while keeping feature parity with the existing generator and outlining future
+ enhancements such as automated mileage calculation to Meritus Medical Center and optional GPT-powered grammar refinement.
 
 Use the plan as the source of truth while duplicating the MatchCloud narrative generator in a modern, easily customizable forma
 t.
