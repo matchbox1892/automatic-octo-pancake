@@ -1,0 +1,49 @@
+{
+  "id": "plan",
+  "title": "Plan",
+  "description": "Treatments provided and transport decisions.",
+  "fields": [
+    {
+      "id": "treatments",
+      "type": "checkbox-group",
+      "label": "Treatments Initiated",
+      "options": [
+        { "value": "oxygen", "label": "Oxygen" },
+        { "value": "asa", "label": "Aspirin" },
+        { "value": "nitro", "label": "Nitroglycerin" },
+        { "value": "albuterol", "label": "Albuterol" },
+        { "value": "ivAccess", "label": "IV access" },
+        { "value": "glucometry", "label": "Glucometry" }
+      ]
+    },
+    {
+      "id": "transportMode",
+      "type": "select",
+      "label": "Transport Mode",
+      "options": [
+        { "value": "als", "label": "ALS" },
+        { "value": "bls", "label": "BLS" },
+        { "value": "refused", "label": "Refused transport" },
+        { "value": "other", "label": "Other" }
+      ]
+    },
+    {
+      "id": "destination",
+      "type": "text",
+      "label": "Destination",
+      "placeholder": "e.g. Meritus Medical Center"
+    },
+    {
+      "id": "mileage",
+      "type": "number",
+      "label": "Scene to Destination Mileage"
+    },
+    {
+      "id": "planNotes",
+      "type": "textarea",
+      "label": "Plan Notes",
+      "rows": 4,
+      "helperText": "Document consultations, physician orders, and turnover notes."
+    }
+  ]
+}

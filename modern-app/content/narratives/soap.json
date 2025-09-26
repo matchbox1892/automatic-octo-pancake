@@ -1,0 +1,25 @@
+{
+  "id": "soap",
+  "sections": [
+    {
+      "id": "subjective",
+      "heading": "Subjective",
+      "template": "{{#if subjective.chiefComplaint}}Chief complaint: {{subjective.chiefComplaint}}. {{/if}}{{#if subjective.historyProvider}}History provided by {{subjective.historyProvider}}. {{/if}}{{#if subjective.symptomsList}}Pertinent symptoms: {{subjective.symptomsList}}. {{/if}}{{#if subjective.painScale}}Pain rated {{subjective.painScale}}/10. {{/if}}{{#if subjective.notes}}{{subjective.notes}}{{/if}}"
+    },
+    {
+      "id": "objective",
+      "heading": "Objective",
+      "template": "{{#if objective.primaryImpression}}Primary impression: {{objective.primaryImpression}}. {{/if}}{{#if objective.secondaryImpression}}Secondary impression: {{objective.secondaryImpression}}. {{/if}}{{#if objective.vitalsList}}Vitals: {{objective.vitalsList}}. {{/if}}{{#if objective.objectiveNotes}}{{objective.objectiveNotes}}{{/if}}"
+    },
+    {
+      "id": "assessment",
+      "heading": "Assessment",
+      "template": "{{#if assessment.summary}}Assessment summary: {{assessment.summary}}. {{/if}}{{#if assessment.clinicalFindingsList}}Key findings: {{assessment.clinicalFindingsList}}. {{/if}}{{#if assessment.differential}}Differential: {{assessment.differential}}. {{/if}}"
+    },
+    {
+      "id": "plan",
+      "heading": "Plan",
+      "template": "{{#if plan.treatmentsList}}Treatments: {{plan.treatmentsList}}. {{/if}}{{#if plan.transportMode}}Transport mode: {{plan.transportMode}}{{#if plan.destination}} to {{plan.destination}}{{/if}}. {{/if}}{{#if plan.mileage}}Mileage recorded: {{plan.mileage}} miles. {{/if}}{{#if plan.planNotes}}{{plan.planNotes}}{{/if}}"
+    }
+  ]
+}
