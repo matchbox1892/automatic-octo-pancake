@@ -7,9 +7,6 @@
 $(function() {
 	// close all of the main sections
 	assCollapseAll();
-	hideDiv('divIncident');
-	hideDiv('divPatient');
-	hideDiv('divInsurance');
 	
 	// any click in the report will trigger a GA event to start the report
 	$('.groupdivision').click(function() {
@@ -132,7 +129,12 @@ $(function() {
 
 // hide the menu
 function closeMenu() {
-	$('#mainmenu').hide();
+    if (window.headerMenu && typeof window.headerMenu.close === 'function') {
+        window.headerMenu.close();
+    } else {
+        $('#HDR_mainmenu').hide();
+        $('#HDR_mask').hide();
+    }
 }
 
 //checks to see if storage is available, from: https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API
@@ -1019,7 +1021,7 @@ function divSetCollapse (id, intention) {
 }
 //collapse all division headers
 function divCollapseAll () {
-	var divarr = ['divIncident','divPatient','divInsurance','divX2','divX3','divX4','divX5','divX6'];
+        var divarr = ['divX2','divX3','divX4','divX5','divX6'];
 	for (var i=0; i<divarr.length; i++) {
 		hideDiv(divarr[i]);
 	}
@@ -1027,7 +1029,7 @@ function divCollapseAll () {
 
 //expand all division headers
 function divExpandAll () {
-	var divarr = ['divIncident','divPatient','divInsurance','divX2','divX3','divX4','divX5','divX6'];
+        var divarr = ['divX2','divX3','divX4','divX5','divX6'];
 	for (var i=0; i<divarr.length; i++) {
 		showDiv(divarr[i]);
 	}
@@ -1151,7 +1153,11 @@ function rndnumber(number2) {
 }
 
 function toggleMenu() {
-	$('#mainmenu').toggle();
+    if (window.headerMenu && typeof window.headerMenu.toggle === 'function') {
+        window.headerMenu.toggle();
+    } else {
+        $('#HDR_mainmenu').toggle();
+    }
 }
 
 // ------------------   P L A N  C A R D  E V E N T   F U N C T I O N S ----------------------------

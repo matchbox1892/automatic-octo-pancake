@@ -1,0 +1,54 @@
+export type FieldOption = {
+  value: string;
+  label: string;
+  helperText?: string;
+};
+
+export type BaseField = {
+  id: string;
+  label: string;
+  helperText?: string;
+  placeholder?: string;
+};
+
+export type TextField = BaseField & {
+  type: "text" | "textarea" | "number" | "time";
+  rows?: number;
+};
+
+export type SelectField = BaseField & {
+  type: "select";
+  options: FieldOption[];
+};
+
+export type CheckboxGroupField = BaseField & {
+  type: "checkbox-group";
+  options: FieldOption[];
+};
+
+export type ArrayField = BaseField & {
+  type: "array";
+  itemLabel: string;
+  addButtonLabel?: string;
+  itemFields: (TextField | SelectField | CheckboxGroupField)[];
+};
+
+export type Field = TextField | SelectField | CheckboxGroupField | ArrayField;
+
+export type Section = {
+  id: string;
+  title: string;
+  description?: string;
+  fields: Field[];
+};
+
+export type NarrativeTemplateSection = {
+  id: string;
+  heading: string;
+  template: string;
+};
+
+export type NarrativeTemplate = {
+  id: string;
+  sections: NarrativeTemplateSection[];
+};

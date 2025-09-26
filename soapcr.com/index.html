@@ -19,10 +19,10 @@ google analytics involved here
       gtag('config',);
     </script>
 	
-	<title>Stupid Report Maker</title> 
+        <title>SOAP Narrative Generator</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 	<meta charset="utf-8">
-	<meta name="description" content="Free EMS medical report writing in SOAP and CHART format">
+        <meta name="description" content="Free EMS medical report writing focused on customizable SOAP narratives">
 	<!-- icon stuff -->
 	<meta name="msapplication-square70x70logo" content="/public/images/tile70x70.png">
 	<meta name="msapplication-square70x70logo" content="/public/images/tile150x150.png">
@@ -257,36 +257,8 @@ google analytics involved here
 	margin-top: 0px;
 	margin-bottom: 10px;
 }
-.auth_password_container {
-	position: relative;
-}
-.auth_entry_body input[type='password'] {  
-    outline: none;
-    border: 1px solid hsl(0,0%,90%);
-	border-radius: 3px;
-	background-color: white;
-	padding: 5px 5px 5px 5px;
-	width: 95%;
-	display: block;
-	margin-top: 0px;
-	margin-bottom: 10px;
-}
-.auth_password_peek {
-	font-family: sans-serif;
-	font-size: 10px;
-	position: absolute;
-	left: 194px;
-    top: 8px;
-	float: right;
-	z-index: 10;
-}
 .auth_entry_body input[type='text']:focus {
-	box-shadow: 0px 3px 0 0 hsl(224,48%,45%);
-    border-radius: 3px 3px 0px 0px;
-    border-bottom: 1px solid hsl(0,0%,100%);
-}
-.auth_entry_body input[type='password']:focus {
-	box-shadow: 0px 3px 0 0 hsl(224,48%,45%);
+        box-shadow: 0px 3px 0 0 hsl(224,48%,45%);
     border-radius: 3px 3px 0px 0px;
     border-bottom: 1px solid hsl(0,0%,100%);
 }
@@ -297,26 +269,6 @@ google analytics involved here
 .auth_entry_body label {
 	font-family: sans-serif;
 	font-size: 12px;
-}
-.auth_forgot {
-	font-family: Arial, Helvetica, sans-serif;
-	cursor: default;
-	color: hsl(0,0%,60%);
-	margin-top: 10px;
-}
-.auth_forgot #auth_forgot_password {
-	float: left;
-	margin-left: 5px;
-}
-.auth_forgot #auth_forgot_username {
-	float: right;
-	margin-right: 5px;
-}
-.auth_forgot #auth_forgot_password:hover {
-	color: hsl(0,0%,0%);
-}
-.auth_forgot #auth_forgot_username:hover {
-	color: hsl(0,0%,0%);
 }
 .auth_button {
 	background-color: hsl(224,48%,45%);
@@ -446,12 +398,12 @@ google analytics involved here
     </div>
 
     
-    <div id="mainbodycontainer" class="container" onclick="$('#mainmenu').hide();">
+    <div id="mainbodycontainer" class="container">
         <h1 style="text-align: center">
-            Stupid Report Maker
+            SOAP Narrative Generator
         </h1>
         <div class="greeting">
-            <h2 class="greeting">Time to Write Your<br>Stupid Report</h2>
+            <h2 class="greeting">Time to Craft Your<br>SOAP Narrative</h2>
             <div class="pro_version">
 				Tutorial
             </div>
@@ -459,7 +411,7 @@ google analytics involved here
 		<div id="banner" style="display: none" class="banner"> <!-- this banner is duplicated at the bottom before the create report button -->
             New updates for 2020!
             <ul>
-                <li>Incident, Patient and Insurance Information</li>
+                <li>Streamlined SOAP-only workflow</li>
                 <li>Assessment Specific Documentation</li>
                 <li>Additional Plan Cards</li>
                 <li>One Click Final Report Copy</li>
@@ -473,425 +425,11 @@ google analytics involved here
                 	<div onclick="divCollapseAll()">Collapse All</div>
                 	<div onclick="divExpandAll()">Expand All</div>
                 </div>
-                
+        <!-- 
 
-        <!-- 
-        
-                INCIDENT SECTION
-                 
-        -->
-        <div class="groupdivision">
-        	<div id="incident_header" class="main_header flexHeader">    <div style="padding-left: 15px;">        Incident Information        <img src="/public/images/help_white.svg" alt="help" class="help_icon" onmouseover="showhelp(event, 'Incident information - Information regarding the incident; date, times, location. If any area does not apply to you then ignore it.<br>Up arrow will take you to the top of the document. + and - will collapse or expand the section.')" onmouseout="hidehelp()">    </div>    <div style="padding-right: 15px;">        <div style="display: inline; font-weight: bold; cursor: default" onclick="jumpTop()">            <img src="/public/images/top_white.svg" alt="top" onmouseover="this.src='/public/images/topcircle.svg'" onmouseout="this.src='/public/images/top_white.svg'">        </div>        <div style="display: inline; padding-left: 10px;"> </div>        <div id="divIncidentcollapse" style="display: inline; font-weight: bold; cursor: default" onclick="toggleDiv('divIncident')">            <img src="/public/images/minus_white.svg" alt="expand" onmouseover="this.src='/public/images/minus_blue_circle.svg'" onmouseout="this.src='/public/images/minus_white.svg'">        </div>    </div>
-</div>            
-            <div id="divIncident" class="main_body" style="display: block; clear: right; overflow: hidden">
-            	<div>
-            		<label>Date <input id="txtInc_date"></label>  
-            		<label>Incident # <input id="txtInc_incident_num"></label>
-            	</div>
-            	<div class="a_little_space">
-            		<b>Location</b>
-            		<img src="/public/images/help_black.svg" alt="help" class="help_icon" onmouseover="showhelp(event, 'Location of incident. Enter address, GPS or W3W.')" onmouseout="hidehelp()">
-            		<table class="label_table">
-            			<tr>
-<td>Address</td>
-<td>
-<input id="txtInc_loc_address" class="txtmedium">
-            					<label>Apt/Room/Suite <input id="txtInc_loc_room" class="txtshort"></label>
-</td>
-</tr>
-            			<tr>
-<td>City</td>
-<td>
-<input id="txtInc_loc_city" class="txtmedium">
-            					<label>State <input id="txtInc_loc_state" class="txtshort"></label>
-            					<label>Zip <input id="txtInc_loc_zip" class="txtshort"></label>
-</td>
-</tr>
-            			<tr style="height: 10px;">
-<td></td>
-<td></td>
-</tr>
-            			<!-- <tr><td></td><td><button id='btnFill_GPS' onclick="getGPS_from_address()">Get GPS, W3W</button></td></tr>  -->
-            		 	<tr>
-<td>W3W
-                        		<img src="/public/images/help_black.svg" alt="help" class="help_icon" onmouseover="showhelp(event, 'Use the What3Words app to find your 3 word location. Enter the 3 words here. If there is no entry in the GPS then it will be filled in based on your W3W location', 400)" onmouseout="hidehelp()">
-                                 ///</td>
-                            <td style="position: relative;">
-<input id="txtInc_loc_w3w" class="txtsmall">  
-                                <!-- <span id="linkInc_loc_w3w"></span> -->
-                                <div id="w3wInc_maplink" class="location_button">What3Words Map</div>
-                                <div id="w3wInc_suggestions"></div>
-                                </td>
-</tr>
-                        <tr>
-<td>GPS
-                        		<img src="/public/images/help_black.svg" alt="help" class="help_icon" onmouseover="showhelp(event, 'To find GPS coordinates from a map, go to maps.google.com, right-click on your location, choose \'What\'s here?\', GPS coordinates will be displayed.', 400)" onmouseout="hidehelp()">
-                                  lat</td>
-<td>
-<input id="txtInc_loc_gpslat" class="txtsmall">
-            		 			<label>long <input id="txtInc_loc_gpslong" class="txtsmall"></label>  
-            		 			<!-- <span id="linkInc_loc_gps"></span>  -->
-            		 			<div id="gpsInc_maplink" class="location_button">Google Maps</div>
-            		 			</td>
-</tr>
-            		 	<tr>
-<td></td>
-<td></td>
-</tr>
-            		</table>
-            	</div>
-            	<div class="a_little_space">
-            		<b>Times</b>
-            		<img src="/public/images/help_black.svg" alt="help" class="help_icon" onmouseover="showhelp(event, 'Times at certain points of the incident')" onmouseout="hidehelp()">
-            		<table class="label_table">
-            			<tr>
-<td>Incoming call</td>
-<td><input id="txtInc_time_incoming"></td>
-</tr>
-            			<tr>
-<td>Dispatched</td>
-<td><input id="txtInc_time_dispatched"></td>
-</tr>
-            			<tr>
-<td>Responding</td>
-<td><input id="txtInc_time_responding"></td>
-</tr>
-            			<tr>
-<td>Arrival</td>
-<td><input id="txtInc_time_arrival"></td>
-</tr>
-            			<tr>
-<td>Pt contact</td>
-<td><input id="txtInc_time_contact"></td>
-</tr>
-            			<tr>
-<td>Transport/Left Scene</td>
-<td><input id="txtInc_time_transport"></td>
-</tr>
-            			<tr>
-<td>Destination</td>
-<td><input id="txtInc_time_destination"></td>
-</tr>
-            			<tr>
-<td>BIS</td>
-<td><input id="txtInc_time_bis"></td>
-</tr>
-            			<tr>
-<td>Back at quarters</td>
-<td><input id="txtInc_time_qtrs"></td>
-</tr>
-            			<tr>
-<td>Cancelled</td>
-<td><input id="txtInc_time_cancelled"></td>
-</tr>
-            			<tr>
-<td>Other</td>
-<td><input id="txtInc_time_other"></td>
-<td><label>Description: <input id="txtInc_time_otherdesc"></label></td>
-</tr>
-            		</table>
-            	</div>
-            	<div class="a_little_space">
-            		<b>Apparatus and Response</b>
-            		<img src="/public/images/help_black.svg" alt="help" class="help_icon" onmouseover="showhelp(event, 'Responding apparatus, shift, response and transport speeds, final disposition of call')" onmouseout="hidehelp()">
-            		<table class="label_table">
-            			<tr>
-<td>Apparatus</td>
-<td><input id="txtInc_apparatus" class="txtlong"></td>
-</tr>
-            			<tr>
-<td>Shift</td>
-<td>
-                    		<label><input type="radio" id="rbShiftA" name="rbShift" value="A">A</label> 
-                            <label><input type="radio" id="rbShiftB" name="rbShift" value="B">B</label> 
-                            <label><input type="radio" id="rbShiftC" name="rbShift" value="C">C</label> 
-                          
-                          
-                         
-                            Other
-                            <input id="txtShift" class="txtshort">
-</td>
-</tr>
-                        <tr>
-<td>Response</td>
-<td>
-                    		<label><input type="radio" id="rbResponseCode3" name="rbInc_response" value="emergent">Emergent</label>
-                    		<label><input type="radio" id="rbResponseCode2" name="rbInc_response" value="non-emergent">Non-emergent</label>
-                    		 or <select id="ddlInc_ResponseCode" onchange="evincddlResponse()">
-                        		<option value="">Choose</option>
-                        		<option value="code 2">Code 2</option>
-                        		<option value="code 3">Code 3</option>
-                        		<option value="no lights and sirens">No lights and sirens</option>
-                        		<option value="lights only">Lights only</option>
-                        		<option value="lights and sirens">Lights and sirens</option>
-                        		<option value="on location">On location</option>
-                        	</select>
-</td>
-</tr>
-                    	<tr>
-<td>Transport</td>
-<td>
-                            <label><input type="radio" id="rbResponseCode3" name="rbInc_transport" value="emergent">Emergency</label>
-                            <label><input type="radio" id="rbResponseCode2" name="rbInc_transport" value="non-emergent">Non-emergency</label>
-                    		 or <select id="ddlInc_TransportCode" onchange="evincddlTransport()">
-                        		<option value="">Choose</option>
-                        		<option value="code 2">Code 2</option>
-                        		<option value="code 3">Code 3</option>
-                        		<option value="no lights and sirens">No lights and sirens</option>
-                        		<option value="lights only">Lights only</option>
-                        		<option value="lights and sirens ">Lights and sirens</option>
-                        		<option value="on location">On location</option>
-                        	</select>
-</td>
-</tr>
-                        <tr>
-<td>Disposition</td>
-<td>
-                        	<select id="ddlInc_disposition">
-                                <option value="">Choose disposition</option>
-                                <option value="Transport to facility">Transport to facility</option>
-                                <option value="Transport via another agency">Transport via another agency</option>
-                                <option value="Refusal">Refusal</option>
-                                <option value="Cancelled prior to arrival">Cancelled prior to arrival</option>
-                                <option value="Cancelled on scene">Cancelled on scene</option>
-                                <option value="Standby and cancelled">Standby and cancelled</option>
-                                <option value="Other">Other</option>
-                            </select>
-                            <span id="txtInc_disposition_show" style="display: none"><label>Description<input id="txtInc_disposition_other" class="txtmedium"></label></span>
-</td>
-<td>
-                            </td>
-</tr>
-                    </table>
-            	</div>
-            	<div class="a_little_space">
-            		<b>Personnel</b>
-            		<img src="/public/images/help_black.svg" alt="help" class="help_icon" onmouseover="showhelp(event, 'Personnel on scene and their role. This can include other agencies. Press button to add more rows.')" onmouseout="hidehelp()">
-            		<table id="tblInc_personnel"> <!--  this is dynamically cleared, if you change this, change is in savepcrpro.js -->
-            			<tr>
-<td>Name</td>
-<td>Role</td>
-</tr>
-            			<tr>
-<td><input id="txtInc_personnel0001_name" class="txtmedium"></td>
-<td><input id="txtInc_personnel0001_role"></td>
-</tr>
-            			<tr>
-<td><input id="txtInc_personnel0002_name" class="txtmedium"></td>
-<td><input id="txtInc_personnel0002_role"></td>
-</tr>
-            		</table>
-            		<button id="btnInc_addpersonnel" onclick="add_personnel_to_incident()">Add personnel</button>
-            	</div>
-            	<div class="a_little_space">
-            		<b>Mileage</b>
-            		<img src="/public/images/help_black.svg" alt="help" class="help_icon" onmouseover="showhelp(event, 'Mileage of apparatus at certain points of the incident')" onmouseout="hidehelp()">
-            		<table class="label_table">
-            			<tr>
-<td>At Responding</td>
-<td><input id="txtInc_miles_responding"></td>
-</tr>
-            			<tr>
-<td>At Scene</td>
-<td><input id="txtInc_miles_scene"></td>
-</tr>
-            			<tr>
-<td>At Destination</td>
-<td><input id="txtInc_miles_destination"></td>
-</tr>
-            			<tr>
-<td>At Other</td>
-<td><input id="txtInc_miles_other"></td>
-<td><label>Description: <input id="txtInc_miles_otherdesc"></label></td>
-</tr>
-            		</table>
-            	</div>
-            	<div class="dispatch_info a_little_space">
-                    <b>Dispatch info</b>
-                    <img src="/public/images/help_black.svg" alt="help" class="help_icon" onmouseover="showhelp(event, 'Initial and updated dispatch information prior to patient contact')" onmouseout="hidehelp()">
-                    <br>
-                     <textarea id="txtRespondsTo" style="width: 600px; height: 50px;"></textarea>
-                </div>
-            </div>
-        </div>
-                
-                
-        <!-- 
-        
-                PATIENT SECTION
-                 
-        -->
-        <div class="groupdivision">
-        	<div id="patient_header" class="main_header flexHeader">    <div style="padding-left: 15px;">        Patient Information        <img src="/public/images/help_white.svg" alt="help" class="help_icon" onmouseover="showhelp(event, 'Patient information - Information regarding the patient. If any area does not apply to you then ignore it.<br>Up arrow will take you to the top of the document. + and - will collapse or expand the section.')" onmouseout="hidehelp()">    </div>    <div style="padding-right: 15px;">        <div style="display: inline; font-weight: bold; cursor: default" onclick="jumpTop()">            <img src="/public/images/top_white.svg" alt="top" onmouseover="this.src='/public/images/topcircle.svg'" onmouseout="this.src='/public/images/top_white.svg'">        </div>        <div style="display: inline; padding-left: 10px;"> </div>        <div id="divPatientcollapse" style="display: inline; font-weight: bold; cursor: default" onclick="toggleDiv('divPatient')">            <img src="/public/images/minus_white.svg" alt="expand" onmouseover="this.src='/public/images/minus_blue_circle.svg'" onmouseout="this.src='/public/images/minus_white.svg'">        </div>    </div>
-</div>            
-            <div id="divPatient" class="main_body" style="display: block; clear: right; overflow: hidden">
-            	<div>
-            		<b>Name</b>
-            		<img src="/public/images/help_black.svg" alt="help" class="help_icon" onmouseover="showhelp(event, 'Enter patient's name')" onmouseout="hidehelp()">
-                    <table>
-                    	<tr>
-<td>First</td>
-<td>Middle</td>
-<td>Last</td>
-</tr>
-                    	<tr>
-<td><input id="txtPers_firstname" class="txtshort2"></td>
-                    	    <td><input id="txtPers_middlename" class="txtshort"></td>
-                    	    <td><input id="txtPers_lastname" class="txtmedium"></td>
-</tr>
-                    </table>
-                </div>
-                <div class="a_little_space">
-                    <b>Phone</b>
-            		<img src="/public/images/help_black.svg" alt="help" class="help_icon" onmouseover="showhelp(event, 'Enter patients phone numbers')" onmouseout="hidehelp()">
-                    <table>
-                    	<tr>
-<td>Phone #1</td>
-<td>Phone #2</td>
-</tr>
-                    	<tr>
-<td><input id="txtPers_phone1" class="txtshort2"></td>
-                    	    <td><input id="txtPers_phone2" class="txtshort2"></td>
-</tr>
-                    </table>
-            	</div>
-            	<div class="a_little_space">
-            		<b>Address</b>
-            		<img src="/public/images/help_black.svg" alt="help" class="help_icon" onmouseover="showhelp(event, 'Mailing address for patient.')" onmouseout="hidehelp()">
-            		<table class="label_table">
-            			<tr>
-<td>Address</td>
-<td>
-<input id="txtPers_loc_address" class="txtmedium">
-            					<label>Apt/Room/Suite <input id="txtPers_loc_room" class="txtshort"></label>
-</td>
-</tr>
-            			<tr>
-<td>City</td>
-<td>
-<input id="txtPers_loc_city" class="txtmedium">
-            					<label>State <input id="txtPers_loc_state" class="txtshort"></label>
-            					<label>Zip <input id="txtPers_loc_zip" class="txtshort"></label>
-</td>
-</tr>
-            		</table>
-            	</div>
-            	<div class="a_little_space">
-            		<b>Age, Sex, Weight</b>
-            		<img src="/public/images/help_black.svg" alt="help" class="help_icon" onmouseover="showhelp(event, 'Enter the birthdate or age. Age is calculated by birthdate. Enter sex. Enter approximate weight. Conversions between kg and lb will be calculated.')" onmouseout="hidehelp()">
-                    <table>
-                    	<tr>
-<td></td>
-<td>Month</td>
-<td>Day</td>
-<td>Year</td>
-</tr>
-                    	<tr>
-<td>Birthdate</td>
-                    		<td><input type="number" id="txtPers_bd_month" class="txttiny"></td>
-                    	    <td><input type="number" id="txtPers_bd_day" class="txttiny"></td>
-                    	    <td><input type="number" id="txtPers_bd_year" class="txttiny"></td>
-                    	    <td>    
-                        	    Age:
-                                <input type="number" id="txtPers_age" style="width: 72px;">
-                                <select id="ddlPers_years">
-                                    <option value="year old">Years</option>
-                                    <option value="month old">Months</option>
-                                    <option value="day old">Days</option>
-                                </select>     
-                                <label><input type="radio" id="rbPers_GenderM" name="rbPers_gender" value="male">Male</label>
-                                <label><input type="radio" id="rbPers_GenderF" name="rbPers_gender" value="female">Female</label>
-                    	    </td>
-</tr>
-                    	    <tr>
-<td>Weight</td>
-                    	    	<td colspan="3">
-                    	    		<input id="txtPers_weightkg" type="text" style="width: 62px;" onkeyup="setweight('lb',1)"> kgs
-                                      
-                                    <input id="txtPers_weightlb" type="text" style="width: 62px;" onkeyup="setweight('kg',1)"> lbs
-                                </td>
-</tr>
-                    </table>
-            	</div>
-            </div>
-        </div>  
-                
-                
-        <!-- 
-        
-                INSURANCE SECTION
-                 
-        -->
-        <div class="groupdivision">
-        	<div id="insurance_header" class="main_header flexHeader">    <div style="padding-left: 15px;">        Insurance Information        <img src="/public/images/help_white.svg" alt="help" class="help_icon" onmouseover="showhelp(event, 'Insurance information - Information regarding the patients insurance. If any area does not apply to you then ignore it.<br>Up arrow will take you to the top of the document. + and - will collapse or expand the section.')" onmouseout="hidehelp()">    </div>    <div style="padding-right: 15px;">        <div style="display: inline; font-weight: bold; cursor: default" onclick="jumpTop()">            <img src="/public/images/top_white.svg" alt="top" onmouseover="this.src='/public/images/topcircle.svg'" onmouseout="this.src='/public/images/top_white.svg'">        </div>        <div style="display: inline; padding-left: 10px;"> </div>        <div id="divInsurancecollapse" style="display: inline; font-weight: bold; cursor: default" onclick="toggleDiv('divInsurance')">            <img src="/public/images/minus_white.svg" alt="expand" onmouseover="this.src='/public/images/minus_blue_circle.svg'" onmouseout="this.src='/public/images/minus_white.svg'">        </div>    </div>
-</div>            
-            <div id="divInsurance" class="main_body" style="display: block; clear: right; overflow: hidden">
-            	<div>
-                	<table class="label_table">
-                		<tr>
-<td>Insurance Company</td>
-                    		<td><input id="txtIns_company" class="txtlong"></td>
-</tr>
-                    	<tr>
-<td>Type</td>
-<td>
-                    			<select id="ddlIns_type">
-                    				<option value="">choose</option>
-                    				<option value="">Private Insurance</option>
-                    				<option value="">Medicaid</option>
-                    				<option value="">Medicare</option>
-                    				<option value="">Self Pay</option>
-                    				<option value="">Other</option>
-                    			</select>
-</td>
-</tr>
-                		<tr>
-<td>Policy #</td>
-                			<td><input id="txtIns_policy" class="txtmedium"></td>
-</tr>
-                		<tr>
-<td>Group #/Name</td>
-                			<td><input id="txtIns_group" class="txtmedium"></td>
-</tr>
-                		<tr>
-<td>SS #</td>
-                			<td><input id="txtIns_social" class="txtmedium"></td>
-</tr>
-                		<tr>
-<td>Name of Insured</td>
-                			<td><input id="txtIns_insured" class="txtmedium"></td>
-</tr>
-                		<tr>
-<td>Relation to Insured</td>
-<td>
-                    			<select id="ddlIns_insured_relation">
-                    				<option value="">choose</option>
-                    				<option value="">Self</option>
-                    				<option value="">Spouse</option>
-                    				<option value="">Dependant</option>
-                    				<option value="">Other</option>
-                    			</select>
-</td>
-</tr>
-                		<tr>
-<td>Work Related?</td>
-                			<td>
-<label><input type="radio" name="rbIns_work" value="yes">Yes</label>  
-                				<label><input type="radio" name="rbIns_work" value="no">No</label>
-</td>
-</tr>
-                	</table>
-                </div>
-            	
-            </div>
-        </div>
-        
-        
-        <!--
-        
         SUBJECTIVE SECTION
-        
-        
+
+
         -->
         <div class="groupdivision">
         	<div id="subjective_header" class="main_header flexHeader">    <div style="padding-left: 15px;">        Subjective Information        <img src="/public/images/help_white.svg" alt="help" class="help_icon" onmouseover="showhelp(event, 'Subjective information - This is what your patient states about their condition. It is their subjective opinion about what is going on.<br>Up arrow will take you to the top of the document. + and - will collapse or expand the section.')" onmouseout="hidehelp()">    </div>    <div style="padding-right: 15px;">        <div style="display: inline; font-weight: bold; cursor: default" onclick="jumpTop()">            <img src="/public/images/top_white.svg" alt="top" onmouseover="this.src='/public/images/topcircle.svg'" onmouseout="this.src='/public/images/top_white.svg'">        </div>        <div style="display: inline; padding-left: 10px;"> </div>        <div id="divX2collapse" style="display: inline; font-weight: bold; cursor: default" onclick="toggleDiv('divX2')">            <img src="/public/images/minus_white.svg" alt="expand" onmouseover="this.src='/public/images/minus_blue_circle.svg'" onmouseout="this.src='/public/images/minus_white.svg'">        </div>    </div>
@@ -4382,9 +3920,6 @@ Choose a plan from the list below<br>A plan card will show in a list of plan car
                 <div class="rptCreate">
                 	<div onclick="writepcr()">Create Report</div>
                 </div>
-            	<div class="chart_button">
-            		<label><input type="checkbox" id="chart_button" value="CHART">create report in the CHART format</label>
-            	</div>
             	<div class="copy_clipboard" onclick="copy_to_clipboard()">
             		<span style="font-size: 10px">copy to clipboard</span>
             		<img src="/public/images/copy_icon.svg" alt="copy to clipboard">
