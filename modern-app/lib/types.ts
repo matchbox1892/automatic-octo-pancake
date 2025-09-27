@@ -4,11 +4,21 @@ export type FieldOption = {
   helperText?: string;
 };
 
+export type VisibilityOperator = "equals" | "notEquals" | "contains" | "notEmpty";
+
+export type VisibilityCondition = {
+  fieldId: string;
+  operator?: VisibilityOperator;
+  value?: string | string[];
+};
+
 export type BaseField = {
   id: string;
   label: string;
   helperText?: string;
   placeholder?: string;
+  visibleWhen?: VisibilityCondition | VisibilityCondition[];
+  conditions?: VisibilityCondition | VisibilityCondition[];
 };
 
 export type TextField = BaseField & {

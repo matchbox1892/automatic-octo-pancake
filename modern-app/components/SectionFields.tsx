@@ -1,9 +1,87 @@
 "use client";
 
+import React, { useEffect } from "react";
 import { Controller, useFieldArray, useFormContext } from "react-hook-form";
 import type { NarrativeFormData } from "@/lib/form-schema";
 import { useFieldSync } from "@/lib/useFieldSync";
-import type { ArrayField, Field, Section } from "@/lib/types";
+import type { ArrayField, Field, Section, VisibilityCondition } from "@/lib/types";
+
+function getValueByPath(values: unknown, path: string) {
+  if (!values) return undefined;
+  return path.split(".").reduce<unknown>((acc, key) => {
+    if (acc === undefined || acc === null) return undefined;
+    if (typeof acc !== "object") return undefined;
+    return (acc as Record<string, unknown>)[key];
+  }, values);
+}
+
+function normalizeConditions(field: Field): VisibilityCondition[] {
+  const raw = field.visibleWhen ?? field.conditions;
+  if (!raw) return [];
+  return Array.isArray(raw) ? raw : [raw];
+}
+
+function evaluateCondition(condition: VisibilityCondition, values: unknown): boolean {
+  const { fieldId, operator = "equals", value } = condition;
+  const currentValue = getValueByPath(values, fieldId);
+
+  switch (operator) {
+    case "equals":
+      if (Array.isArray(value)) {
+        return value.includes(String(currentValue ?? ""));
+      }
+      return currentValue === value;
+    case "notEquals":
+      if (Array.isArray(value)) {
+        return !value.includes(String(currentValue ?? ""));
+      }
+      return currentValue !== value;
+    case "contains":
+      if (Array.isArray(currentValue)) {
+        if (Array.isArray(value)) {
+          return value.every((val) => currentValue.includes(val));
+        }
+        return value !== undefined && currentValue.includes(value);
+      }
+      if (typeof currentValue === "string") {
+        if (Array.isArray(value)) {
+          return value.every((val) => currentValue.includes(val));
+        }
+        return value !== undefined && currentValue.includes(String(value));
+      }
+      return false;
+    case "notEmpty":
+      if (Array.isArray(currentValue)) {
+        return currentValue.length > 0;
+      }
+      if (typeof currentValue === "string") {
+        return currentValue.trim().length > 0;
+      }
+      return currentValue !== undefined && currentValue !== null;
+    default:
+      return true;
+  }
+}
+
+function isFieldVisible(field: Field, values: unknown) {
+  const conditions = normalizeConditions(field);
+  if (!conditions.length) return true;
+  return conditions.every((condition) => evaluateCondition(condition, values));
+}
+
+function shouldResetValue(field: Field, value: unknown) {
+  if (field.type === "checkbox-group" || field.type === "array") {
+    return Array.isArray(value) && value.length > 0;
+  }
+  return value !== undefined && value !== null && value !== "";
+}
+
+function getResetValue(field: Field) {
+  if (field.type === "checkbox-group" || field.type === "array") {
+    return [];
+  }
+  return "";
+}
 
 function FieldHelp({ helperText }: { helperText?: string }) {
   if (!helperText) return null;
@@ -205,6 +283,7 @@ function renderField(field: Field, path: string) {
 
 export function SectionFields({ section, basePath }: { section: Section; basePath: string }) {
   const form = useFormContext<NarrativeFormData>();
+  const watchedValues = form.watch();
 
   useFieldSync({
     sectionId: section.id,
@@ -214,19 +293,38 @@ export function SectionFields({ section, basePath }: { section: Section; basePat
     enabled: section.id === "incident" || section.id === "patient"
   });
 
+  useEffect(() => {
+    const currentValues = form.getValues();
+    section.fields.forEach((field) => {
+      if (!isFieldVisible(field, watchedValues)) {
+        const path = `${basePath}.${field.id}`;
+        const existingValue = getValueByPath(currentValues, path);
+        if (shouldResetValue(field, existingValue)) {
+          form.setValue(path as never, getResetValue(field) as never, {
+            shouldDirty: false,
+            shouldValidate: false
+          });
+        }
+        form.clearErrors(path as never);
+      }
+    });
+  }, [basePath, form, section.fields, watchedValues]);
+
   return (
     <div className="space-y-6">
       {section.fields.map((field) => (
-        <div key={field.id} className="flex flex-col">
-          <label
-            htmlFor={`${basePath}.${field.id}`}
-            className="text-sm font-semibold text-slate-800"
-          >
-            {field.label}
-          </label>
-          <div className="mt-1">{renderField(field, `${basePath}.${field.id}`)}</div>
-          <FieldHelp helperText={field.helperText} />
-        </div>
+        isFieldVisible(field, watchedValues) ? (
+          <div key={field.id} className="flex flex-col">
+            <label
+              htmlFor={`${basePath}.${field.id}`}
+              className="text-sm font-semibold text-slate-800"
+            >
+              {field.label}
+            </label>
+            <div className="mt-1">{renderField(field, `${basePath}.${field.id}`)}</div>
+            <FieldHelp helperText={field.helperText} />
+          </div>
+        ) : null
       ))}
     </div>
   );

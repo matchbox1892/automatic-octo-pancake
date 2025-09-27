@@ -15,7 +15,14 @@ export const useNarrativeStore = create<NarrativeState>((set) => ({
     subjective: { chiefComplaint: "", historyProvider: "", symptoms: [], painScale: "", notes: "" },
     objective: { primaryImpression: "", secondaryImpression: "", vitals: [], objectiveNotes: "" },
     assessment: { summary: "", differential: "", clinicalFindings: [] },
-    plan: { treatments: [], transportMode: "", destination: "", mileage: "", planNotes: "" }
+    plan: {
+      treatments: [],
+      transportMode: "",
+      transportOtherDetails: "",
+      destination: "",
+      mileage: "",
+      planNotes: ""
+    }
   },
   narrative: "",
   setFormData: (data) => set({ formData: data }),

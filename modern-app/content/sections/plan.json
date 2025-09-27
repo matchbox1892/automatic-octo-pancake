@@ -28,6 +28,17 @@
       ]
     },
     {
+      "id": "transportOtherDetails",
+      "type": "textarea",
+      "label": "Describe Other Transport Mode",
+      "rows": 3,
+      "visibleWhen": {
+        "fieldId": "plan.transportMode",
+        "operator": "equals",
+        "value": "other"
+      }
+    },
+    {
       "id": "destination",
       "type": "text",
       "label": "Destination",
@@ -36,7 +47,12 @@
     {
       "id": "mileage",
       "type": "number",
-      "label": "Scene to Destination Mileage"
+      "label": "Scene to Destination Mileage",
+      "visibleWhen": {
+        "fieldId": "plan.transportMode",
+        "operator": "notEquals",
+        "value": "refused"
+      }
     },
     {
       "id": "planNotes",

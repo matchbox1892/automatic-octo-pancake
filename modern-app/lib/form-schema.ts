@@ -32,6 +32,7 @@ export const AssessmentSchema = z.object({
 export const PlanSchema = z.object({
   treatments: z.array(z.string()).default([]),
   transportMode: z.string().optional(),
+  transportOtherDetails: z.string().optional(),
   destination: z.string().optional(),
   mileage: z.string().optional(),
   planNotes: z.string().optional()

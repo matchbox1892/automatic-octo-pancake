@@ -30,6 +30,7 @@ export const defaultFormValues: NarrativeFormData = {
   plan: {
     treatments: [],
     transportMode: "",
+    transportOtherDetails: "",
     destination: "",
     mileage: "",
     planNotes: ""
