@@ -1,0 +1,9 @@
+{
+  "name": "automatic-octo-pancake",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "npx http-server -p 8000 soapcr.com",
+    "preview": "npx http-server -p 8000 soapcr.com"
+  }
+}
