@@ -1,5 +1,6 @@
+'use client';
+
 // Lightweight auth/session stub to mirror legacy behavior.
-import { useEffect } from "react";
 import { create } from "zustand";
 
 type AuthState = {
@@ -32,15 +33,4 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   resetTimeout: () => set({ expiresAt: null })
 }));
 
-export function useAutoTimeout(minutes = 50, onTimeout?: () => void) {
-  useEffect(() => {
-    useAuthStore.getState().startTimeout(minutes, onTimeout);
-    const onActivity = () => useAuthStore.getState().startTimeout(minutes, onTimeout);
-    window.addEventListener("click", onActivity);
-    window.addEventListener("keydown", onActivity);
-    return () => {
-      window.removeEventListener("click", onActivity);
-      window.removeEventListener("keydown", onActivity);
-    };
-  }, [minutes, onTimeout]);
-}
+// useAutoTimeout hook moved to hooks.ts
