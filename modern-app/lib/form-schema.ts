@@ -1,11 +1,27 @@
 import { z } from "zod";
+import { VitalSignsSchema } from "./vital-signs";
 
-const VitalSchema = z.object({
-  time: z.string().optional(),
-  heartRate: z.string().optional(),
-  bloodPressure: z.string().optional(),
-  respiratoryRate: z.string().optional(),
-  spo2: z.string().optional()
+export const ThreeStateSchema = z.object({
+  state: z.enum(["none", "minus", "plus"]).default("none"),
+  details: z.string().optional(),
+});
+
+export const ApgarScoreSchema = z.object({
+  oneMinute: z.object({
+    time: z.literal("1min"),
+    scores: z.record(z.number()),
+    total: z.number(),
+  }).optional(),
+  fiveMinute: z.object({
+    time: z.literal("5min"),
+    scores: z.record(z.number()),
+    total: z.number(),
+  }).optional(),
+  tenMinute: z.object({
+    time: z.literal("10min"),
+    scores: z.record(z.number()),
+    total: z.number(),
+  }).optional(),
 });
 
 export const SubjectiveSchema = z.object({
@@ -19,14 +35,20 @@ export const SubjectiveSchema = z.object({
 export const ObjectiveSchema = z.object({
   primaryImpression: z.string().optional(),
   secondaryImpression: z.string().optional(),
-  vitals: z.array(VitalSchema).default([{}]),
+  vitals: z.array(VitalSignsSchema).default([{}]),
+  unremarkable: z.boolean().default(false),
+  isTrauma: z.boolean().default(false),
+  assessmentFindings: z.record(ThreeStateSchema).default({}),
+  apgarScores: ApgarScoreSchema.optional(),
   objectiveNotes: z.string().optional()
 });
 
 export const AssessmentSchema = z.object({
   summary: z.string().optional(),
   differential: z.string().optional(),
-  clinicalFindings: z.array(z.string()).default([])
+  clinicalFindings: z.array(z.string()).default([]),
+  unremarkable: z.boolean().default(false),
+  findings: z.record(ThreeStateSchema).default({})
 });
 
 export const PlanSchema = z.object({

@@ -9,12 +9,12 @@
     {
       "id": "objective",
       "heading": "O:",
-      "template": "{{#if objective.primaryImpressionText}}{{objective.primaryImpressionText}}.{{/if}}{{#if objective.secondaryImpressionText}} Secondary impression: {{objective.secondaryImpressionText}}.{{/if}}{{#if objective.vitalsList}} Vitals: {{objective.vitalsList}}.{{/if}}{{#if objective.objectiveNotes}}{{#if objective.hasNarrative}} {{/if}}{{objective.objectiveNotes}}{{/if}}"
+      "template": "{{#if objective.primaryImpressionText}}{{objective.primaryImpressionText}}.{{/if}}{{#if objective.secondaryImpressionText}} Secondary impression: {{objective.secondaryImpressionText}}.{{/if}}{{#if objective.vitalsList}} Vitals: {{objective.vitalsList}}.{{/if}}{{#if objective.unremarkable}} Physical exam unremarkable.{{else}}{{#if objective.assessmentNarrative}} {{objective.assessmentNarrative}}.{{/if}}{{/if}}{{#if objective.apgarNarrative}} {{objective.apgarNarrative}}.{{/if}}{{#if objective.objectiveNotes}}{{#if objective.hasNarrative}} {{/if}}{{objective.objectiveNotes}}{{/if}}"
     },
     {
       "id": "assessment",
       "heading": "A:",
-      "template": "{{#if assessment.summaryText}}{{assessment.summaryText}}.{{/if}}{{#if assessment.clinicalFindingsList}} Key findings include {{assessment.clinicalFindingsList}}.{{/if}}{{#if assessment.differentialText}} Differential includes {{assessment.differentialText}}.{{/if}}"
+      "template": "{{#if assessment.summaryText}}{{assessment.summaryText}}.{{/if}}{{#if assessment.unremarkable}} Assessment unremarkable.{{else}}{{#if assessment.findingsNarrative}} {{assessment.findingsNarrative}}.{{/if}}{{/if}}{{#if assessment.clinicalFindingsList}} Key findings include {{assessment.clinicalFindingsList}}.{{/if}}{{#if assessment.differentialText}} Differential includes {{assessment.differentialText}}.{{/if}}"
     },
     {
       "id": "plan",
