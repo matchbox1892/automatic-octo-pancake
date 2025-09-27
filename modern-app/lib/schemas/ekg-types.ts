@@ -1,10 +1,12 @@
 import { z } from 'zod';
 
 export const ekgTypes = [
+  'Continuous Monitoring',
   '3-Lead',
   '4-Lead',
   '12-Lead',
-  '15-Lead'
+  '15-Lead',
+  'Other'
 ] as const;
 
 export const commonRhythms = [
@@ -14,11 +16,18 @@ export const commonRhythms = [
   'Atrial Fibrillation',
   'Atrial Flutter',
   'SVT',
-  'V-Tach',
-  'V-Fib',
+  'Ventricular Tachycardia',
+  'Ventricular Fibrillation',
   'Asystole',
   'PEA',
-  'Heart Block',
+  '1° Heart Block',
+  '2° Heart Block Type I',
+  '2° Heart Block Type II',
+  '3° Heart Block',
+  'Bundle Branch Block',
+  'Junctional Rhythm',
+  'Idioventricular Rhythm',
+  'Paced Rhythm',
   'STEMI',
   'Other'
 ] as const;
@@ -32,6 +41,7 @@ export const stemiLocations = [
 ] as const;
 
 export const EKGDetailsSchema = z.object({
+  time: z.string(),
   type: z.enum(ekgTypes),
   rhythm: z.enum(commonRhythms),
   customRhythm: z.string().optional(),
@@ -47,6 +57,9 @@ export const EKGDetailsSchema = z.object({
   qrs: z.number().min(40).max(200).optional(),
   qtc: z.number().min(200).max(600).optional(),
   prInterval: z.number().min(80).max(400).optional(),
+  verified: z.boolean(),
+  verifiedBy: z.string().optional(),
+  verifiedAt: z.string().optional(),
 });
 
 export type EKGType = typeof ekgTypes[number];
