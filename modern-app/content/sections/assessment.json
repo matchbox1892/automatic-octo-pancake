@@ -1,0 +1,31 @@
+{
+  "id": "assessment",
+  "title": "Assessment",
+  "description": "Clinical decision-making and working diagnosis.",
+  "fields": [
+    {
+      "id": "summary",
+      "type": "textarea",
+      "label": "Assessment Summary",
+      "rows": 4
+    },
+    {
+      "id": "differential",
+      "type": "textarea",
+      "label": "Differential Diagnosis",
+      "rows": 3
+    },
+    {
+      "id": "clinicalFindings",
+      "type": "checkbox-group",
+      "label": "Key Findings",
+      "options": [
+        { "value": "neuroIntact", "label": "Neurologically intact" },
+        { "value": "perfusionAdequate", "label": "Perfusion adequate" },
+        { "value": "airwayPatent", "label": "Airway patent" },
+        { "value": "breathingUnlabored", "label": "Breathing unlabored" },
+        { "value": "cmsIntact", "label": "CMS intact" }
+      ]
+    }
+  ]
+}
