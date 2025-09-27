@@ -1,0 +1,52 @@
+{
+  "id": "subjective",
+  "title": "Subjective",
+  "description": "Patient-reported history and presenting symptoms.",
+  "fields": [
+    {
+      "id": "chiefComplaint",
+      "type": "text",
+      "label": "Chief Complaint",
+      "placeholder": "Patient states..."
+    },
+    {
+      "id": "historyProvider",
+      "type": "select",
+      "label": "History Provided By",
+      "options": [
+        { "value": "patient", "label": "Patient" },
+        { "value": "family", "label": "Family" },
+        { "value": "caregiver", "label": "Caregiver" },
+        { "value": "bystander", "label": "Bystander" },
+        { "value": "lawEnforcement", "label": "Law enforcement" }
+      ],
+      "placeholder": "Select contributor"
+    },
+    {
+      "id": "symptoms",
+      "type": "checkbox-group",
+      "label": "Pertinent Symptoms",
+      "options": [
+        { "value": "sob", "label": "Shortness of breath" },
+        { "value": "chestPain", "label": "Chest pain" },
+        { "value": "nausea", "label": "Nausea" },
+        { "value": "vomiting", "label": "Vomiting" },
+        { "value": "weakness", "label": "Weakness" },
+        { "value": "dizziness", "label": "Dizziness" }
+      ]
+    },
+    {
+      "id": "painScale",
+      "type": "number",
+      "label": "Pain Scale (0-10)",
+      "placeholder": "0-10"
+    },
+    {
+      "id": "notes",
+      "type": "textarea",
+      "label": "Subjective Notes",
+      "rows": 4,
+      "helperText": "Summarize SAMPLE history, OPQRST findings, and patient statements."
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": "objective",
+  "title": "Objective",
+  "description": "Clinician findings, vitals, and assessments observed on scene.",
+  "fields": [
+    {
+      "id": "primaryImpression",
+      "type": "select",
+      "label": "Primary Impression",
+      "options": [
+        { "value": "medical", "label": "Medical" },
+        { "value": "trauma", "label": "Trauma" },
+        { "value": "cardiac", "label": "Cardiac" },
+        { "value": "respiratory", "label": "Respiratory" },
+        { "value": "neurological", "label": "Neurological" }
+      ]
+    },
+    {
+      "id": "secondaryImpression",
+      "type": "text",
+      "label": "Secondary Impression",
+      "placeholder": "Expanded medical or trauma impression"
+    },
+    {
+      "id": "vitals",
+      "type": "array",
+      "label": "Vitals",
+      "itemLabel": "Vital Set",
+      "addButtonLabel": "Add Vital Set",
+      "itemFields": [
+        { "id": "time", "type": "time", "label": "Time" },
+        { "id": "heartRate", "type": "number", "label": "HR" },
+        { "id": "bloodPressure", "type": "text", "label": "BP" },
+        { "id": "respiratoryRate", "type": "number", "label": "RR" },
+        { "id": "spo2", "type": "number", "label": "SpO₂" }
+      ]
+    },
+    {
+      "id": "objectiveNotes",
+      "type": "textarea",
+      "label": "Objective Notes",
+      "rows": 4,
+      "helperText": "Include exam findings, pertinent negatives, and scene observations."
+    }
+  ]
+}

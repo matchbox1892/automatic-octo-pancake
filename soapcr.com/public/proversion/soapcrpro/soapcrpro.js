@@ -129,7 +129,12 @@ $(function() {
 
 // hide the menu
 function closeMenu() {
-	$('#mainmenu').hide();
+    if (window.headerMenu && typeof window.headerMenu.close === 'function') {
+        window.headerMenu.close();
+    } else {
+        $('#HDR_mainmenu').hide();
+        $('#HDR_mask').hide();
+    }
 }
 
 //checks to see if storage is available, from: https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API
@@ -1148,7 +1153,11 @@ function rndnumber(number2) {
 }
 
 function toggleMenu() {
-	$('#mainmenu').toggle();
+    if (window.headerMenu && typeof window.headerMenu.toggle === 'function') {
+        window.headerMenu.toggle();
+    } else {
+        $('#HDR_mainmenu').toggle();
+    }
 }
 
 // ------------------   P L A N  C A R D  E V E N T   F U N C T I O N S ----------------------------
