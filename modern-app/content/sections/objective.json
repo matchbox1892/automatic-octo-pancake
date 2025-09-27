@@ -12,7 +12,8 @@
         { "value": "trauma", "label": "Trauma" },
         { "value": "cardiac", "label": "Cardiac" },
         { "value": "respiratory", "label": "Respiratory" },
-        { "value": "neurological", "label": "Neurological" }
+        { "value": "neurological", "label": "Neurological" },
+        { "value": "obstetric", "label": "Obstetric" }
       ]
     },
     {
@@ -29,18 +30,367 @@
       "addButtonLabel": "Add Vital Set",
       "itemFields": [
         { "id": "time", "type": "time", "label": "Time" },
-        { "id": "heartRate", "type": "number", "label": "HR" },
-        { "id": "bloodPressure", "type": "text", "label": "BP" },
-        { "id": "respiratoryRate", "type": "number", "label": "RR" },
-        { "id": "spo2", "type": "number", "label": "SpO₂" }
+        { "id": "heartRate", "type": "number", "label": "HR", "unit": "bpm" },
+        { "id": "systolic", "type": "number", "label": "Systolic", "unit": "mmHg" },
+        { "id": "diastolic", "type": "number", "label": "Diastolic", "unit": "mmHg" },
+        { "id": "respiratoryRate", "type": "number", "label": "RR", "unit": "/min" },
+        { "id": "spo2", "type": "number", "label": "SpO₂", "unit": "%" },
+        { "id": "temperature", "type": "number", "label": "Temp" },
+        { "id": "tempScale", "type": "select", "label": "Scale", "options": [
+          { "value": "F", "label": "°F" },
+          { "value": "C", "label": "°C" }
+        ]},
+        { "id": "etco2", "type": "number", "label": "EtCO₂", "unit": "mmHg" },
+        { "id": "bgl", "type": "number", "label": "BGL", "unit": "mg/dL" }
       ]
+    },
+    {
+      "id": "gcs",
+      "type": "group",
+      "label": "Glasgow Coma Scale",
+      "fields": [
+        {
+          "id": "eyes",
+          "type": "select",
+          "label": "Eyes",
+          "options": [
+            { "value": "4", "label": "Spontaneous", "score": 4 },
+            { "value": "3", "label": "To Voice", "score": 3 },
+            { "value": "2", "label": "To Pain", "score": 2 },
+            { "value": "1", "label": "None", "score": 1 }
+          ]
+        },
+        {
+          "id": "verbal",
+          "type": "select",
+          "label": "Verbal",
+          "options": [
+            { "value": "5", "label": "Oriented", "score": 5 },
+            { "value": "4", "label": "Confused", "score": 4 },
+            { "value": "3", "label": "Inappropriate", "score": 3 },
+            { "value": "2", "label": "Incomprehensible", "score": 2 },
+            { "value": "1", "label": "None", "score": 1 }
+          ]
+        },
+        {
+          "id": "motor",
+          "type": "select",
+          "label": "Motor",
+          "options": [
+            { "value": "6", "label": "Obeys Commands", "score": 6 },
+            { "value": "5", "label": "Localizes Pain", "score": 5 },
+            { "value": "4", "label": "Withdraws from Pain", "score": 4 },
+            { "value": "3", "label": "Flexion to Pain", "score": 3 },
+            { "value": "2", "label": "Extension to Pain", "score": 2 },
+            { "value": "1", "label": "None", "score": 1 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unremarkable",
+      "type": "boolean",
+      "label": "Physical Exam Unremarkable"
+    },
+    {
+      "id": "general",
+      "type": "section",
+      "label": "General Assessment",
+      "visibleWhen": {
+        "fieldId": "unremarkable",
+        "operator": "equals",
+        "value": false
+      },
+      "fields": [
+        {
+          "id": "appearance",
+          "type": "three-state",
+          "label": "General Appearance"
+        },
+        {
+          "id": "skin",
+          "type": "three-state",
+          "label": "Skin Color/Condition"
+        },
+        {
+          "id": "mental",
+          "type": "three-state",
+          "label": "Mental Status"
+        }
+      ]
+    },
+    {
+      "id": "head",
+      "type": "section",
+      "label": "Head Assessment",
+      "visibleWhen": {
+        "fieldId": "unremarkable",
+        "operator": "equals",
+        "value": false
+      },
+      "fields": [
+        {
+          "id": "head",
+          "type": "three-state",
+          "label": "Head/Scalp"
+        },
+        {
+          "id": "face",
+          "type": "three-state",
+          "label": "Face"
+        },
+        {
+          "id": "eyes",
+          "type": "three-state",
+          "label": "Eyes"
+        },
+        {
+          "id": "ears",
+          "type": "three-state",
+          "label": "Ears"
+        },
+        {
+          "id": "nose",
+          "type": "three-state",
+          "label": "Nose"
+        },
+        {
+          "id": "mouth",
+          "type": "three-state",
+          "label": "Mouth/Throat"
+        }
+      ]
+    },
+    {
+      "id": "neck",
+      "type": "section",
+      "label": "Neck Assessment",
+      "visibleWhen": {
+        "fieldId": "unremarkable",
+        "operator": "equals",
+        "value": false
+      },
+      "fields": [
+        {
+          "id": "trachea",
+          "type": "three-state",
+          "label": "Trachea"
+        },
+        {
+          "id": "jugular",
+          "type": "three-state",
+          "label": "Jugular Veins"
+        },
+        {
+          "id": "cervical",
+          "type": "three-state",
+          "label": "Cervical Spine"
+        }
+      ]
+    },
+    {
+      "id": "chest",
+      "type": "section",
+      "label": "Chest Assessment",
+      "visibleWhen": {
+        "fieldId": "unremarkable",
+        "operator": "equals",
+        "value": false
+      },
+      "fields": [
+        {
+          "id": "effort",
+          "type": "three-state",
+          "label": "Breathing Effort"
+        },
+        {
+          "id": "sounds",
+          "type": "three-state",
+          "label": "Breath Sounds"
+        },
+        {
+          "id": "symmetry",
+          "type": "three-state",
+          "label": "Chest Wall Symmetry"
+        },
+        {
+          "id": "crepitus",
+          "type": "three-state",
+          "label": "Crepitus"
+        }
+      ]
+    },
+    {
+      "id": "cardiac",
+      "type": "section",
+      "label": "Cardiac Assessment",
+      "visibleWhen": {
+        "fieldId": "unremarkable",
+        "operator": "equals",
+        "value": false
+      },
+      "fields": [
+        {
+          "id": "rate",
+          "type": "three-state",
+          "label": "Heart Rate/Rhythm"
+        },
+        {
+          "id": "sounds",
+          "type": "three-state",
+          "label": "Heart Sounds"
+        },
+        {
+          "id": "edema",
+          "type": "three-state",
+          "label": "Peripheral Edema"
+        }
+      ]
+    },
+    {
+      "id": "abdomen",
+      "type": "section",
+      "label": "Abdominal Assessment",
+      "visibleWhen": {
+        "fieldId": "unremarkable",
+        "operator": "equals",
+        "value": false
+      },
+      "fields": [
+        {
+          "id": "tenderness",
+          "type": "three-state",
+          "label": "Tenderness"
+        },
+        {
+          "id": "rigidity",
+          "type": "three-state",
+          "label": "Rigidity"
+        },
+        {
+          "id": "distention",
+          "type": "three-state",
+          "label": "Distention"
+        },
+        {
+          "id": "sounds",
+          "type": "three-state",
+          "label": "Bowel Sounds"
+        }
+      ]
+    },
+    {
+      "id": "extremities",
+      "type": "section",
+      "label": "Extremities Assessment",
+      "visibleWhen": {
+        "fieldId": "unremarkable",
+        "operator": "equals",
+        "value": false
+      },
+      "fields": [
+        {
+          "id": "movement",
+          "type": "three-state",
+          "label": "Motor Function"
+        },
+        {
+          "id": "sensation",
+          "type": "three-state",
+          "label": "Sensation"
+        },
+        {
+          "id": "pulses",
+          "type": "three-state",
+          "label": "Pulses"
+        },
+        {
+          "id": "edema",
+          "type": "three-state",
+          "label": "Edema"
+        }
+      ]
+    },
+    {
+      "id": "back",
+      "type": "section",
+      "label": "Back Assessment",
+      "visibleWhen": {
+        "fieldId": "unremarkable",
+        "operator": "equals",
+        "value": false
+      },
+      "fields": [
+        {
+          "id": "tenderness",
+          "type": "three-state",
+          "label": "Tenderness"
+        },
+        {
+          "id": "deformity",
+          "type": "three-state",
+          "label": "Deformity"
+        },
+        {
+          "id": "movement",
+          "type": "three-state",
+          "label": "Range of Motion"
+        }
+      ]
+    },
+    {
+      "id": "neuro",
+      "type": "section",
+      "label": "Neurological Assessment",
+      "visibleWhen": {
+        "fieldId": "unremarkable",
+        "operator": "equals",
+        "value": false
+      },
+      "fields": [
+        {
+          "id": "mental",
+          "type": "three-state",
+          "label": "Mental Status"
+        },
+        {
+          "id": "speech",
+          "type": "three-state",
+          "label": "Speech"
+        },
+        {
+          "id": "pupils",
+          "type": "three-state",
+          "label": "Pupils"
+        },
+        {
+          "id": "facial",
+          "type": "three-state",
+          "label": "Facial Symmetry"
+        },
+        {
+          "id": "grip",
+          "type": "three-state",
+          "label": "Grip Strength"
+        }
+      ]
+    },
+    {
+      "id": "apgarScores",
+      "type": "section",
+      "label": "APGAR Scoring",
+      "visibleWhen": {
+        "fieldId": "primaryImpression",
+        "operator": "equals",
+        "value": "obstetric"
+      }
     },
     {
       "id": "objectiveNotes",
       "type": "textarea",
-      "label": "Objective Notes",
+      "label": "Additional Findings",
       "rows": 4,
-      "helperText": "Include exam findings, pertinent negatives, and scene observations."
+      "helperText": "Document any other pertinent findings or observations"
     }
   ]
 }

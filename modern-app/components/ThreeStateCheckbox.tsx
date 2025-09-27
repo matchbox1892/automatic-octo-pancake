@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
-export type ThreeStateValue = 0 | 1 | 2; // none, minus, plus
+export type ThreeStateValue = 1 | 2 | 3; // none, minus, plus
+type ThreeStateAltText = '☐' | '⊟' | '⊞';
 
 type ThreeStateCheckboxProps = {
   value?: ThreeStateValue;
@@ -15,19 +16,19 @@ type ThreeStateCheckboxProps = {
 };
 
 const stateToImage = {
-  0: '/images/3stage1.svg',
-  1: '/images/3stage2.svg',
-  2: '/images/3stage3.svg',
-};
+  1: '/public/images/3stage1.svg',
+  2: '/public/images/3stage2.svg',
+  3: '/public/images/3stage3.svg',
+} as const satisfies Record<ThreeStateValue, string>;
 
 const stateToAlt = {
-  0: '☐', // empty box
-  1: '⊟', // minus
-  2: '⊞', // plus
-};
+  1: '☐', // empty box
+  2: '⊟', // minus
+  3: '⊞', // plus
+} as const satisfies Record<ThreeStateValue, ThreeStateAltText>;
 
 export function ThreeStateCheckbox({
-  value = 0,
+  value = 1,
   onChange,
   label,
   disabled = false,
@@ -44,7 +45,7 @@ export function ThreeStateCheckbox({
   const handleClick = () => {
     if (disabled) return;
     
-    const nextState = ((localState + 1) % 3) as ThreeStateValue;
+    const nextState = (localState === 3 ? 1 : localState + 1) as ThreeStateValue;
     setLocalState(nextState);
     onChange?.(nextState);
   };

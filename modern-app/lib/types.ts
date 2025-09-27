@@ -1,3 +1,10 @@
+export type AgeUnit = 'years' | 'months' | 'days';
+
+export type AgeValue = {
+  value: number;
+  unit: AgeUnit;
+};
+
 export type FieldOption = {
   value: string;
   label: string;
