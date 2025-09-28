@@ -10,6 +10,12 @@
       "placeholder": "Patient states..."
     },
     {
+      "id": "noChiefComplaint",
+      "type": "checkbox",
+      "label": "Patient reports no chief complaint",
+      "helperText": "Select if the patient denies any presenting complaint."
+    },
+    {
       "id": "historyProvider",
       "type": "select",
       "label": "History Provided By",
@@ -21,6 +27,13 @@
         { "value": "lawEnforcement", "label": "Law enforcement" }
       ],
       "placeholder": "Select contributor"
+    },
+    {
+      "id": "patientNarrative",
+      "type": "textarea",
+      "label": "Patient Statements",
+      "rows": 3,
+      "helperText": "Summarize the patient's own description of events."
     },
     {
       "id": "symptoms",
@@ -40,6 +53,48 @@
       "type": "number",
       "label": "Pain Scale (0-10)",
       "placeholder": "0-10"
+    },
+    {
+      "id": "opqrstOnset",
+      "type": "text",
+      "label": "OPQRST – Onset",
+      "placeholder": "What was happening when symptoms began?"
+    },
+    {
+      "id": "opqrstProvokes",
+      "type": "text",
+      "label": "OPQRST – Provokes/Relieves",
+      "placeholder": "What makes it better or worse?"
+    },
+    {
+      "id": "opqrstQuality",
+      "type": "text",
+      "label": "OPQRST – Quality",
+      "placeholder": "Describe the pain or symptom quality"
+    },
+    {
+      "id": "opqrstRadiates",
+      "type": "text",
+      "label": "OPQRST – Radiation",
+      "placeholder": "Does it travel anywhere?"
+    },
+    {
+      "id": "opqrstSeverityDescription",
+      "type": "text",
+      "label": "OPQRST – Severity Description",
+      "placeholder": "Severity details or descriptors"
+    },
+    {
+      "id": "opqrstTime",
+      "type": "text",
+      "label": "OPQRST – Time",
+      "placeholder": "When did this start or how long has it lasted?"
+    },
+    {
+      "id": "historySimilar",
+      "type": "text",
+      "label": "History of Similar Events",
+      "placeholder": "Describe prior similar episodes"
     },
     {
       "id": "notes",
