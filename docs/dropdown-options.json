@@ -1,0 +1,411 @@
+{
+  "ddlInc_ResponseCode": [
+    "Choose",
+    "Code 2",
+    "Code 3",
+    "No lights and sirens",
+    "Lights only",
+    "Lights and sirens",
+    "On location"
+  ],
+  "ddlInc_TransportCode": [
+    "Choose",
+    "Code 2",
+    "Code 3",
+    "No lights and sirens",
+    "Lights only",
+    "Lights and sirens",
+    "On location"
+  ],
+  "ddlInc_disposition": [
+    "Choose disposition",
+    "Transport to facility",
+    "Transport via another agency",
+    "Refusal",
+    "Cancelled prior to arrival",
+    "Cancelled on scene",
+    "Standby and cancelled",
+    "Other"
+  ],
+  "ddlPers_years": [
+    "Years",
+    "Months",
+    "Days"
+  ],
+  "ddlIns_type": [
+    "choose",
+    "Private Insurance",
+    "Medicaid",
+    "Medicare",
+    "Self Pay",
+    "Other"
+  ],
+  "ddlIns_insured_relation": [
+    "choose",
+    "Self",
+    "Spouse",
+    "Dependant",
+    "Other"
+  ],
+  "ddlHospital": [
+    "Choose",
+    "Meritus",
+    "BMC",
+    "JMC",
+    "War Memorial",
+    "Fulton County"
+  ],
+  "ddlHospitalReason": [
+    "Choose",
+    "Closest Facility",
+    "Patient Request",
+    "Family Request",
+    "Cardiac",
+    "Trauma MMC"
+  ],
+  "ddlYears": [
+    "Years",
+    "Months",
+    "Days"
+  ],
+  "ddlPlanResponseCode": [
+    "Choose",
+    "Alpha",
+    "Bravo",
+    "Charlie",
+    "Delta",
+    "Echo",
+    "Emergency",
+    "Non-Emergency",
+    "On location"
+  ],
+  "ddlPlanVitalsPosition": [
+    "Choose",
+    "Sitting",
+    "Standing",
+    "Supine",
+    "Prone",
+    "Semi-fowlers",
+    "Fowlers",
+    "Left-lateral",
+    "Right-lateral"
+  ],
+  "ddlPlanGCSeye_adult": [
+    "Choose",
+    "4 - Opens eyes spontaneously",
+    "3 - Opens eyes in response to voice",
+    "2 - Opens eyes in response to pain",
+    "1 - Does not open eyes"
+  ],
+  "ddlPlanGCSverbal_adult": [
+    "Choose",
+    "5 - Oriented, converses normally",
+    "4 - Confused, disoriented",
+    "3 - Words, but not coherent",
+    "2 - Sounds, but no words",
+    "1 - Makes no sounds"
+  ],
+  "ddlPlanGCSmotor_adult": [
+    "Choose",
+    "6 - Obeys commands",
+    "5 - Localizes to painful stimuli",
+    "4 - Flexion, withdrawal to painful stimuli",
+    "3 - Abnormal flexion to painful stimuli",
+    "2 - Extension to painful stimuli",
+    "1 - Makes no movements"
+  ],
+  "ddlPlanGCSeye_infant": [
+    "Choose",
+    "4 - Opens eyes spontaneously",
+    "3 - Opens eyes in response to voice",
+    "2 - Opens eyes in response to pain",
+    "1 - Does not open eyes"
+  ],
+  "ddlPlanGCSverbal_infant": [
+    "Choose",
+    "5 - Smiles, orients to sounds, follows objects, interacts",
+    "4 - Cries but consolable, inappropriate interactions",
+    "3 - Inconsistently inconsolable, moaning",
+    "2 - Inconsolable, agitated",
+    "1 - Makes no sounds"
+  ],
+  "ddlPlanGCSmotor_infant": [
+    "Choose",
+    "6 - Moves spontaneously or purposefully",
+    "5 - Withdraws from touch",
+    "4 - Withdraws from pain",
+    "3 - Abnormal flexion to painful stimuli",
+    "2 - Extension to painful stimuli",
+    "1 - Makes no movements"
+  ],
+  "ddlPlanIVFluid": [
+    "Choose",
+    "Lactated Ringer's",
+    "Saline Lock"
+  ],
+  "ddlPlanIVMacro": [
+    "Choose drip size",
+    "Macro 10gtts",
+    "Macro 15gtts",
+    "Micro 60gtts"
+  ],
+  "ddlPlanIVCatheter": [
+    "Choose size",
+    "14g",
+    "16g",
+    "18g",
+    "20g",
+    "22g",
+    "24g",
+    "Pink EZ-IO",
+    "Blue EZ-IO",
+    "Yellow EZ-IO"
+  ],
+  "ddlPlanIVSite": [
+    "Choose location",
+    "Left Hand",
+    "Left Wrist",
+    "Left Forearm",
+    "Left Antecubital",
+    "Left Jugular",
+    "Left Tibia",
+    "Left Humeral Head",
+    "Right Hand",
+    "Right Wrist",
+    "Right Forearm",
+    "Right Antecubital",
+    "Right Jugular",
+    "Right Tibia",
+    "Right Humeral Head",
+    "Other"
+  ],
+  "ddlPlanIVAttempts": [
+    "Choose number of",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5"
+  ],
+  "ddlPlanCPRRate": [
+    "Rate CPR",
+    "Poor",
+    "Good"
+  ],
+  "ddlPlanCapWave": [
+    "Choose",
+    "Normal waveform",
+    "Prolonged phase II with increased slope in phase III"
+  ],
+  "ddlPlanAirwayNPApos": [
+    "Choose nare",
+    "Left nare",
+    "Right nare"
+  ],
+  "ddlPlanETTAttempts": [
+    "Choose",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5"
+  ],
+  "ddlPlanETTVerifychords": [
+    "Choose",
+    "Positive",
+    "Negative"
+  ],
+  "ddlPlanETTVerifylung": [
+    "Choose",
+    "Positive",
+    "Negative"
+  ],
+  "ddlPlanETTVerifygastric": [
+    "Choose",
+    "Positive",
+    "Negative"
+  ],
+  "ddlPlanETTVerifychest": [
+    "Choose",
+    "Positive",
+    "Negative"
+  ],
+  "ddlPlanLMAAttempts": [
+    "Choose",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5"
+  ],
+  "ddlPlanLMAVerifyCap": [
+    "Choose",
+    "Positive",
+    "Negative"
+  ],
+  "ddlPlanLMAVerifylung": [
+    "Choose",
+    "Positive",
+    "Negative"
+  ],
+  "ddlPlanLMAVerifygastric": [
+    "Choose",
+    "Positive",
+    "Negative"
+  ],
+  "ddlPlanLMAVerifychest": [
+    "Choose",
+    "Positive",
+    "Negative"
+  ],
+  "ddlPlanACheckGastric": [
+    "Choose",
+    "Positive",
+    "Negative"
+  ],
+  "ddlPlanDrugBasicDrug": [
+    "Choose one",
+    "Acetaminophen",
+    "Activated Charcoal",
+    "Albuterol",
+    "Aspirin",
+    "Epinephrine",
+    "Naloxone",
+    "Nitroglycerin",
+    "Oral Glucose",
+    "Oxygen"
+  ],
+  "ddlPlanDrugAdvDrug": [
+    "Choose one",
+    "Adenosine",
+    "Albuterol",
+    "Albuterol/Ipratropium",
+    "Amiodarone",
+    "Aspirin",
+    "Atropine Sulfate",
+    "Calcium Chloride",
+    "Dexamethasone",
+    "Diltiazem",
+    "Droperidol",
+    "Dextrose 10%",
+    "Diltiazem",
+    "Diphenhydramine",
+    "Epi 1:1,000",
+    "Epi 1:10,000",
+    "Fentanyl",
+    "Glucagon",
+    "Ketamine",
+    "Ketorolac",
+    "Lidocaine",
+    "Magnesium Sulfate",
+    "Midazolam",
+    "Naloxone",
+    "Nitroglycerin",
+    "Nitroglycerin Paste",
+    "Ondansetron",
+    "Sodium Bicarbonate",
+    "Terbutaline Sulfate",
+    "Tranexamic Acid",
+    "Verapamil"
+  ],
+  "ddlPlanDrugICUDrug": [
+    "Choose one",
+    "Acetylcysteine",
+    "Amiodarone",
+    "Carboprost",
+    "Desmopressin",
+    "Dobutamine",
+    "Emla",
+    "Esmolol",
+    "Flumazenil",
+    "Glycopyrrolate",
+    "GTN Transdermal Patch",
+    "Ipratropium",
+    "Lipocore",
+    "Labetalol",
+    "Mephentermine",
+    "Nimodipine",
+    "Noradrenaline",
+    "Nitroprusside",
+    "Streptokinase",
+    "TPA"
+  ],
+  "ddlPlanDrugRoute": [
+    "Choose",
+    "IV",
+    "IO",
+    "IM",
+    "IN",
+    "PO",
+    "SL",
+    "NEB"
+  ],
+  "ddlPlanEKGRhythm": [
+    "Choose",
+    "Sinus, Normal Axis, PR-QRS-QTC intervals WNL, No significant ST segment abnormality",
+    "Sinus Bradycardia, Normal Axis, PR-QRS-QTC intervals WNL, No significant ST segment abnormality/option>",
+    "Sinus Tachycardia, Normal Axis, PR-QRS-QTC intervals WNL, No significant ST segment abnormality",
+    "Atrial fibrillation",
+    "Atrial flutter",
+    "Sinus tachycardia",
+    "Sinus bradycardia",
+    "Sinus arrythmia",
+    "Paced rhythm",
+    "MAT",
+    "Atrial tachycardia",
+    "Junctional",
+    "Junctional tachycardia",
+    "IVR",
+    "V-tach",
+    "Wide complex tachycardia",
+    "SVT",
+    "Asystole",
+    "V-fib"
+  ],
+  "ddlPlanFaxHospital": [
+    "Choose",
+    "Meritus",
+    "Cumberland",
+    "FHH"
+  ],
+  "ddlPlanCotWalk": [
+    "Choose",
+    "Assisted to the stretcher",
+    "Pivot to stretcher",
+    "Stair Chair",
+    "Reeve's"
+  ],
+  "ddlPlanCotCarriers": [
+    "Choose number of",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10"
+  ],
+  "ddlPlanCotPosition": [
+    "Choose",
+    "Supine",
+    "Semi-fowlers",
+    "Fowlers",
+    "Left lateral",
+    "Right Lateral"
+  ],
+  "ddlPlanXportCode": [
+    "Choose",
+    "Non-emergency",
+    "Emergency"
+  ],
+  "ddlPlanXportVia": [
+    "Choose",
+    "P191",
+    "P192",
+    "P591",
+    "P592"
+  ]
+}
