@@ -4,6 +4,85 @@
   "description": "Clinician findings, vitals, and assessments observed on scene.",
   "fields": [
     {
+      "id": "age",
+      "type": "number",
+      "label": "Age",
+      "placeholder": "Years"
+    },
+    {
+      "id": "ageUnits",
+      "type": "select",
+      "label": "Age Units",
+      "options": [
+        { "value": "years", "label": "Years" },
+        { "value": "months", "label": "Months" },
+        { "value": "days", "label": "Days" }
+      ],
+      "placeholder": "Select units"
+    },
+    {
+      "id": "gender",
+      "type": "select",
+      "label": "Gender",
+      "options": [
+        { "value": "male", "label": "Male" },
+        { "value": "female", "label": "Female" },
+        { "value": "nonBinary", "label": "Non-binary" },
+        { "value": "unknown", "label": "Unknown" }
+      ],
+      "placeholder": "Select gender"
+    },
+    {
+      "id": "weightKg",
+      "type": "number",
+      "label": "Approximate Weight (kg)",
+      "placeholder": "kg"
+    },
+    {
+      "id": "weightLb",
+      "type": "number",
+      "label": "Approximate Weight (lb)",
+      "placeholder": "lb"
+    },
+    {
+      "id": "generalImpression",
+      "type": "textarea",
+      "label": "General Impression",
+      "rows": 3,
+      "helperText": "Describe the patient's position, distress, or notable findings on arrival."
+    },
+    {
+      "id": "airwayStatus",
+      "type": "text",
+      "label": "Airway",
+      "placeholder": "Patent, compromised, adjuncts, etc."
+    },
+    {
+      "id": "breathingStatus",
+      "type": "text",
+      "label": "Breathing",
+      "placeholder": "Rate, quality, lung sounds"
+    },
+    {
+      "id": "circulationStatus",
+      "type": "text",
+      "label": "Circulation",
+      "placeholder": "Skin signs, pulses, hemorrhage"
+    },
+    {
+      "id": "skinFindings",
+      "type": "textarea",
+      "label": "Skin Findings",
+      "rows": 2
+    },
+    {
+      "id": "neuroStatus",
+      "type": "textarea",
+      "label": "Neurological Status",
+      "rows": 2,
+      "placeholder": "GCS, orientation, focal deficits"
+    },
+    {
       "id": "primaryImpression",
       "type": "select",
       "label": "Primary Impression",
