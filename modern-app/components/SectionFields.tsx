@@ -4,7 +4,12 @@ import React, { useEffect } from "react";
 import { Controller, useFieldArray, useFormContext } from "react-hook-form";
 import type { NarrativeFormData } from "@/lib/form-schema";
 import { useFieldSync } from "@/lib/useFieldSync";
-import type { ArrayField, Field, Section, VisibilityCondition } from "@/lib/types";
+import type {
+  ArrayField,
+  Field,
+  Section,
+  VisibilityCondition
+} from "@/lib/types";
 
 function getValueByPath(values: unknown, path: string) {
   if (!values) return undefined;
@@ -73,12 +78,18 @@ function shouldResetValue(field: Field, value: unknown) {
   if (field.type === "checkbox-group" || field.type === "array") {
     return Array.isArray(value) && value.length > 0;
   }
+  if (field.type === "checkbox") {
+    return Boolean(value);
+  }
   return value !== undefined && value !== null && value !== "";
 }
 
 function getResetValue(field: Field) {
   if (field.type === "checkbox-group" || field.type === "array") {
     return [];
+  }
+  if (field.type === "checkbox") {
+    return false;
   }
   return "";
 }
@@ -128,12 +139,10 @@ function TextInput({
 
 function SelectInput({
   id,
-  label,
   placeholder,
   options
 }: {
   id: string;
-  label: string;
   placeholder?: string;
   options: Array<{ value: string; label: string }>;
 }) {
@@ -200,6 +209,65 @@ function CheckboxGroup({
         );
       }}
     />
+  );
+}
+
+function RadioGroup({
+  id,
+  options
+}: {
+  id: string;
+  options: Array<{ value: string; label: string }>;
+}) {
+  const { control } = useFormContext<NarrativeFormData>();
+  return (
+    <Controller
+      name={id}
+      control={control}
+      render={({ field }) => (
+        <div className="mt-2 flex flex-wrap gap-2">
+          {options.map((option) => (
+            <label
+              key={option.value}
+              className="inline-flex items-center gap-2 rounded-md border border-slate-200 bg-white px-3 py-2 text-sm shadow-sm"
+            >
+              <input
+                type="radio"
+                value={option.value}
+                checked={field.value === option.value}
+                onChange={() => field.onChange(option.value)}
+                className="h-4 w-4 border-slate-300 text-brand-600 focus:ring-brand-500"
+              />
+              <span>{option.label}</span>
+            </label>
+          ))}
+        </div>
+      )}
+    />
+  );
+}
+
+function SingleCheckbox({
+  id,
+  label
+}: {
+  id: string;
+  label: string;
+}) {
+  const { register } = useFormContext<NarrativeFormData>();
+  return (
+    <label
+      htmlFor={id}
+      className="inline-flex items-center gap-2 rounded-md border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-medium text-slate-700 shadow-sm"
+    >
+      <input
+        id={id}
+        type="checkbox"
+        {...register(id)}
+        className="h-4 w-4 rounded border-slate-300 text-brand-600 focus:ring-brand-500"
+      />
+      <span>{label}</span>
+    </label>
   );
 }
 
@@ -271,9 +339,13 @@ function renderField(field: Field, path: string) {
         />
       );
     case "select":
-      return <SelectInput id={path} label={field.label} placeholder={field.placeholder} options={field.options} />;
+      return <SelectInput id={path} placeholder={field.placeholder} options={field.options} />;
+    case "radio-group":
+      return <RadioGroup id={path} options={field.options} />;
     case "checkbox-group":
       return <CheckboxGroup id={path} options={field.options} />;
+    case "checkbox":
+      return <SingleCheckbox id={path} label={field.label} />;
     case "array":
       return <ArrayFieldGroup field={field} path={path} />;
     default:
@@ -315,13 +387,17 @@ export function SectionFields({ section, basePath }: { section: Section; basePat
       {section.fields.map((field) => (
         isFieldVisible(field, watchedValues) ? (
           <div key={field.id} className="flex flex-col">
-            <label
-              htmlFor={`${basePath}.${field.id}`}
-              className="text-sm font-semibold text-slate-800"
-            >
-              {field.label}
-            </label>
-            <div className="mt-1">{renderField(field, `${basePath}.${field.id}`)}</div>
+            {field.type !== "checkbox" && (
+              <label
+                htmlFor={`${basePath}.${field.id}`}
+                className="text-sm font-semibold text-slate-800"
+              >
+                {field.label}
+              </label>
+            )}
+            <div className={field.type === "checkbox" ? "" : "mt-1"}>
+              {renderField(field, `${basePath}.${field.id}`)}
+            </div>
             <FieldHelp helperText={field.helperText} />
           </div>
         ) : null

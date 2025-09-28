@@ -11,7 +11,11 @@ function resolveOptionLabel(
   if (!section) return value;
   const field = section.fields.find((entry) => entry.id === fieldId);
   if (!field) return value;
-  if (field.type === "select" || field.type === "checkbox-group") {
+  if (
+    field.type === "select" ||
+    field.type === "checkbox-group" ||
+    field.type === "radio-group"
+  ) {
     const option = field.options.find((item) => item.value === value);
     return option?.label ?? value;
   }
@@ -71,6 +75,104 @@ function formatVitals(formData: NarrativeFormData["objective"]["vitals"]): strin
     .join("; ");
 }
 
+function buildOpqrstSummary(
+  data: NarrativeFormData["subjective"]
+): string {
+  const segments: string[] = [];
+  const entries: Array<[string, string, string | undefined]> = [
+    ["Onset", "opqrstOnset", data.opqrstOnset],
+    ["Provokes", "opqrstProvokes", data.opqrstProvokes],
+    ["Quality", "opqrstQuality", data.opqrstQuality],
+    ["Radiation", "opqrstRadiates", data.opqrstRadiates],
+    [
+      "Severity",
+      "opqrstSeverityDescription",
+      data.opqrstSeverityDescription
+    ],
+    ["Time", "opqrstTime", data.opqrstTime]
+  ];
+
+  entries.forEach(([label, fieldId, value]) => {
+    if (!value) return;
+    const resolved = stripSentence(
+      resolveOptionLabel("subjective", fieldId, value)
+    );
+    if (resolved) {
+      segments.push(`${label}: ${resolved}`);
+    }
+  });
+
+  return segments.join("; ");
+}
+
+function formatAgeText(age: string | undefined, units: string | undefined): string {
+  const cleanedAge = stripSentence(age ?? "");
+  if (!cleanedAge) {
+    return "";
+  }
+
+  switch (units) {
+    case "years":
+      return `${cleanedAge}-year-old`;
+    case "months":
+      return `${cleanedAge}-month-old`;
+    case "days":
+      return `${cleanedAge}-day-old`;
+    default:
+      return cleanedAge;
+  }
+}
+
+function buildDemographics(
+  data: NarrativeFormData["objective"]
+): string {
+  const ageText = formatAgeText(data.age, data.ageUnits);
+  const genderLabel = data.gender
+    ? resolveOptionLabel("objective", "gender", data.gender).toLowerCase()
+    : "";
+
+  const parts = [ageText, genderLabel].filter(Boolean);
+  if (parts.length === 0) {
+    return "";
+  }
+
+  return `Patient is a ${parts.join(" ")}`.trim();
+}
+
+function formatWeightSummary(
+  data: NarrativeFormData["objective"]
+): string {
+  const kg = stripSentence(data.weightKg ?? "");
+  const lb = stripSentence(data.weightLb ?? "");
+  const segments = [];
+  if (kg) {
+    segments.push(`${kg} kg`);
+  }
+  if (lb) {
+    segments.push(`${lb} lbs`);
+  }
+  if (segments.length === 0) {
+    return "";
+  }
+  return `Weight approx: ${segments.join(" / ")}`;
+}
+
+function buildAbcsSummary(
+  data: NarrativeFormData["objective"]
+): string {
+  const airway = stripSentence(data.airwayStatus ?? "");
+  const breathing = stripSentence(data.breathingStatus ?? "");
+  const circulation = stripSentence(data.circulationStatus ?? "");
+
+  const segments = [
+    airway ? `Airway: ${airway}` : "",
+    breathing ? `Breathing: ${breathing}` : "",
+    circulation ? `Circulation: ${circulation}` : ""
+  ].filter(Boolean);
+
+  return segments.join("; ");
+}
+
 const compiledSections = soapTemplate.sections.map((section) => ({
   ...section,
   compile: Handlebars.compile(section.template)
@@ -80,6 +182,9 @@ export function renderNarrative(formData: NarrativeFormData): string {
   const subjectiveChiefComplaint = lowercaseFirst(
     stripSentence(formData.subjective.chiefComplaint)
   );
+  const subjectiveNoComplaintText = formData.subjective.noChiefComplaint
+    ? "No chief complaint reported"
+    : "";
   const subjectiveHistoryProvider = formData.subjective.historyProvider
     ? resolveOptionLabel(
         "subjective",
@@ -87,20 +192,48 @@ export function renderNarrative(formData: NarrativeFormData): string {
         formData.subjective.historyProvider
       ).toLowerCase()
     : "";
-  const subjectiveSymptoms = buildList(
+  const subjectivePertinentPositives = buildList(
     "subjective",
-    "symptoms",
-    formData.subjective.symptoms
+    "pertinentPositives",
+    formData.subjective.pertinentPositives
   ).toLowerCase();
-  const subjectivePainScale = stripSentence(formData.subjective.painScale);
+  const subjectivePertinentNegatives = buildList(
+    "subjective",
+    "pertinentNegatives",
+    formData.subjective.pertinentNegatives
+  ).toLowerCase();
+  const subjectivePainScale = formData.subjective.painScale
+    ? stripSentence(
+        resolveOptionLabel(
+          "subjective",
+          "painScale",
+          formData.subjective.painScale
+        )
+      )
+    : "";
+  const subjectivePatientNarrative = stripSentence(
+    formData.subjective.patientNarrative ?? ""
+  );
+  const subjectiveOpqrstSummary = buildOpqrstSummary(formData.subjective);
+  const subjectiveSimilarHistory = stripSentence(
+    formData.subjective.historySimilar ?? ""
+  );
   const subjectiveNotes = sanitizeFreeText(formData.subjective.notes);
   const subjectiveHasNarrative = Boolean(
-    subjectiveChiefComplaint ||
+    subjectiveNoComplaintText ||
+      subjectiveChiefComplaint ||
       subjectiveHistoryProvider ||
-      subjectiveSymptoms ||
-      subjectivePainScale
+      subjectivePertinentPositives ||
+      subjectivePertinentNegatives ||
+      subjectivePainScale ||
+      subjectivePatientNarrative ||
+      subjectiveOpqrstSummary ||
+      subjectiveSimilarHistory ||
+      subjectiveNotes
   );
 
+  const objectiveDemographics = buildDemographics(formData.objective);
+  const objectiveWeightSummary = formatWeightSummary(formData.objective);
   const objectivePrimaryImpression = formData.objective.primaryImpression
     ? `Primary impression: ${resolveOptionLabel(
         "objective",
@@ -111,12 +244,29 @@ export function renderNarrative(formData: NarrativeFormData): string {
   const objectiveSecondaryImpression = stripSentence(
     formData.objective.secondaryImpression
   );
+  const objectiveGeneralImpression = stripSentence(
+    formData.objective.generalImpression ?? ""
+  );
+  const objectiveAbcsSummary = buildAbcsSummary(formData.objective);
+  const objectiveSkinFindings = stripSentence(
+    formData.objective.skinFindings ?? ""
+  );
+  const objectiveNeuroStatus = stripSentence(
+    formData.objective.neuroStatus ?? ""
+  );
   const objectiveVitals = formatVitals(formData.objective.vitals ?? []);
   const objectiveNotes = sanitizeFreeText(formData.objective.objectiveNotes);
   const objectiveHasNarrative = Boolean(
-    objectivePrimaryImpression ||
+    objectiveDemographics ||
+      objectiveWeightSummary ||
+      objectivePrimaryImpression ||
       objectiveSecondaryImpression ||
-      objectiveVitals
+      objectiveGeneralImpression ||
+      objectiveAbcsSummary ||
+      objectiveSkinFindings ||
+      objectiveNeuroStatus ||
+      objectiveVitals ||
+      objectiveNotes
   );
 
   const assessmentSummary = stripSentence(formData.assessment.summary);
@@ -163,16 +313,27 @@ export function renderNarrative(formData: NarrativeFormData): string {
     subjective: {
       ...formData.subjective,
       chiefComplaintText: subjectiveChiefComplaint,
+      noComplaintText: subjectiveNoComplaintText,
       historyProviderText: subjectiveHistoryProvider,
-      symptomsList: subjectiveSymptoms,
+      pertinentPositivesList: subjectivePertinentPositives,
+      pertinentNegativesList: subjectivePertinentNegatives,
       painScaleText: subjectivePainScale,
+      patientNarrative: subjectivePatientNarrative,
+      opqrstSummary: subjectiveOpqrstSummary,
+      similarHistoryText: subjectiveSimilarHistory,
       notes: subjectiveNotes,
       hasNarrative: subjectiveHasNarrative
     },
     objective: {
       ...formData.objective,
+      demographics: objectiveDemographics,
+      weightSummary: objectiveWeightSummary,
       primaryImpressionText: objectivePrimaryImpression,
       secondaryImpressionText: objectiveSecondaryImpression,
+      generalImpressionText: objectiveGeneralImpression,
+      abcsSummary: objectiveAbcsSummary,
+      skinFindingsText: objectiveSkinFindings,
+      neuroStatusText: objectiveNeuroStatus,
       vitalsList: objectiveVitals,
       objectiveNotes: objectiveNotes,
       hasNarrative: objectiveHasNarrative
