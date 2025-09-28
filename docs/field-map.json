@@ -1,0 +1,1922 @@
+{
+  "writepcr": {
+    "startLine": 31,
+    "fields": [
+      {
+        "line": 56,
+        "getter": "getCBelem",
+        "fieldId": "chart_button"
+      }
+    ]
+  },
+  "writeIncident": {
+    "startLine": 70,
+    "fields": [
+      {
+        "line": 78,
+        "getter": "getTXelem",
+        "fieldId": "txtInc_date"
+      },
+      {
+        "line": 79,
+        "getter": "getTXelem",
+        "fieldId": "txtInc_incident_num"
+      },
+      {
+        "line": 103,
+        "getter": "getTXelem",
+        "fieldId": "txtInc_loc_address"
+      },
+      {
+        "line": 104,
+        "getter": "getTXelem",
+        "fieldId": "txtInc_loc_room"
+      },
+      {
+        "line": 105,
+        "getter": "getTXelem",
+        "fieldId": "txtInc_loc_city"
+      },
+      {
+        "line": 106,
+        "getter": "getTXelem",
+        "fieldId": "txtInc_loc_state"
+      },
+      {
+        "line": 107,
+        "getter": "getTXelem",
+        "fieldId": "txtInc_loc_zip"
+      },
+      {
+        "line": 108,
+        "getter": "getTXelem",
+        "fieldId": "txtInc_loc_gpslat"
+      },
+      {
+        "line": 109,
+        "getter": "getTXelem",
+        "fieldId": "txtInc_loc_gpslong"
+      },
+      {
+        "line": 110,
+        "getter": "getTXelem",
+        "fieldId": "txtInc_loc_w3w"
+      },
+      {
+        "line": 175,
+        "getter": "getTXelem",
+        "fieldId": "txtInc_time_incoming"
+      },
+      {
+        "line": 176,
+        "getter": "getTXelem",
+        "fieldId": "txtInc_time_dispatched"
+      },
+      {
+        "line": 177,
+        "getter": "getTXelem",
+        "fieldId": "txtInc_time_responding"
+      },
+      {
+        "line": 178,
+        "getter": "getTXelem",
+        "fieldId": "txtInc_time_arrival"
+      },
+      {
+        "line": 179,
+        "getter": "getTXelem",
+        "fieldId": "txtInc_time_contact"
+      },
+      {
+        "line": 180,
+        "getter": "getTXelem",
+        "fieldId": "txtInc_time_transport"
+      },
+      {
+        "line": 181,
+        "getter": "getTXelem",
+        "fieldId": "txtInc_time_destination"
+      },
+      {
+        "line": 182,
+        "getter": "getTXelem",
+        "fieldId": "txtInc_time_bis"
+      },
+      {
+        "line": 183,
+        "getter": "getTXelem",
+        "fieldId": "txtInc_time_qtrs"
+      },
+      {
+        "line": 184,
+        "getter": "getTXelem",
+        "fieldId": "txtInc_time_cancelled"
+      },
+      {
+        "line": 185,
+        "getter": "getTXelem",
+        "fieldId": "txtInc_time_other"
+      },
+      {
+        "line": 186,
+        "getter": "getTXelem",
+        "fieldId": "txtInc_time_otherdesc"
+      },
+      {
+        "line": 269,
+        "getter": "getTXelem",
+        "fieldId": "txtInc_apparatus"
+      },
+      {
+        "line": 270,
+        "getter": "getRBelem",
+        "fieldId": "rbShift"
+      },
+      {
+        "line": 271,
+        "getter": "getTXelem",
+        "fieldId": "txtShift"
+      },
+      {
+        "line": 272,
+        "getter": "getRBelem",
+        "fieldId": "rbInc_response"
+      },
+      {
+        "line": 273,
+        "getter": "getDLelem",
+        "fieldId": "ddlInc_ResponseCode"
+      },
+      {
+        "line": 274,
+        "getter": "getRBelem",
+        "fieldId": "rbInc_transport"
+      },
+      {
+        "line": 275,
+        "getter": "getDLelem",
+        "fieldId": "ddlInc_TransportCode"
+      },
+      {
+        "line": 276,
+        "getter": "getDLelem",
+        "fieldId": "ddlInc_disposition"
+      },
+      {
+        "line": 277,
+        "getter": "getTXelem",
+        "fieldId": "txtInc_disposition_other"
+      },
+      {
+        "line": 376,
+        "getter": "getTXelem",
+        "fieldId": "txtInc_miles_responding"
+      },
+      {
+        "line": 377,
+        "getter": "getTXelem",
+        "fieldId": "txtInc_miles_scene"
+      },
+      {
+        "line": 378,
+        "getter": "getTXelem",
+        "fieldId": "txtInc_miles_destination"
+      },
+      {
+        "line": 379,
+        "getter": "getTXelem",
+        "fieldId": "txtInc_miles_other"
+      },
+      {
+        "line": 380,
+        "getter": "getTXelem",
+        "fieldId": "txtInc_miles_otherdesc"
+      }
+    ]
+  },
+  "writePatient": {
+    "startLine": 422,
+    "fields": [
+      {
+        "line": 431,
+        "getter": "getTXelem",
+        "fieldId": "txtPers_firstname"
+      },
+      {
+        "line": 432,
+        "getter": "getTXelem",
+        "fieldId": "txtPers_middlename"
+      },
+      {
+        "line": 433,
+        "getter": "getTXelem",
+        "fieldId": "txtPers_lastname"
+      },
+      {
+        "line": 434,
+        "getter": "getTXelem",
+        "fieldId": "txtPers_phone1"
+      },
+      {
+        "line": 435,
+        "getter": "getTXelem",
+        "fieldId": "txtPers_phone2"
+      },
+      {
+        "line": 436,
+        "getter": "getTXelem",
+        "fieldId": "txtPers_bd_month"
+      },
+      {
+        "line": 437,
+        "getter": "getTXelem",
+        "fieldId": "txtPers_bd_day"
+      },
+      {
+        "line": 438,
+        "getter": "getTXelem",
+        "fieldId": "txtPers_bd_year"
+      },
+      {
+        "line": 515,
+        "getter": "getTXelem",
+        "fieldId": "txtPers_loc_address"
+      },
+      {
+        "line": 516,
+        "getter": "getTXelem",
+        "fieldId": "txtPers_loc_room"
+      },
+      {
+        "line": 517,
+        "getter": "getTXelem",
+        "fieldId": "txtPers_loc_city"
+      },
+      {
+        "line": 518,
+        "getter": "getTXelem",
+        "fieldId": "txtPers_loc_state"
+      },
+      {
+        "line": 519,
+        "getter": "getTXelem",
+        "fieldId": "txtPers_loc_zip"
+      }
+    ]
+  },
+  "writeInsurance": {
+    "startLine": 559,
+    "fields": [
+      {
+        "line": 568,
+        "getter": "getTXelem",
+        "fieldId": "txtIns_company"
+      },
+      {
+        "line": 569,
+        "getter": "getDLelem",
+        "fieldId": "ddlIns_type"
+      },
+      {
+        "line": 570,
+        "getter": "getTXelem",
+        "fieldId": "txtIns_policy"
+      },
+      {
+        "line": 571,
+        "getter": "getTXelem",
+        "fieldId": "txtIns_group"
+      },
+      {
+        "line": 572,
+        "getter": "getTXelem",
+        "fieldId": "txtIns_social"
+      },
+      {
+        "line": 573,
+        "getter": "getTXelem",
+        "fieldId": "txtIns_insured"
+      },
+      {
+        "line": 574,
+        "getter": "getDLelem",
+        "fieldId": "ddlIns_insured_relation"
+      },
+      {
+        "line": 575,
+        "getter": "getRBelem",
+        "fieldId": "rbIns_work"
+      }
+    ]
+  },
+  "writeDispatch": {
+    "startLine": 646,
+    "fields": [
+      {
+        "line": 653,
+        "getter": "getTXelem",
+        "fieldId": "txtInc_apparatus"
+      },
+      {
+        "line": 659,
+        "getter": "getRBelem",
+        "fieldId": "rbShift"
+      },
+      {
+        "line": 666,
+        "getter": "getTXelem",
+        "fieldId": "txtShift"
+      },
+      {
+        "line": 673,
+        "getter": "getRBelem",
+        "fieldId": "rbInc_response"
+      },
+      {
+        "line": 674,
+        "getter": "getDLelem",
+        "fieldId": "ddlInc_ResponseCode"
+      },
+      {
+        "line": 682,
+        "getter": "getTXelem",
+        "fieldId": "txtRespondsTo"
+      }
+    ]
+  },
+  "writeSubj": {
+    "startLine": 694,
+    "fields": [
+      {
+        "line": 707,
+        "getter": "getTXelem",
+        "fieldId": "txtChiefComplaint"
+      },
+      {
+        "line": 713,
+        "getter": "getCBelem",
+        "fieldId": "cbNoChief"
+      },
+      {
+        "line": 722,
+        "getter": "getTXelem",
+        "fieldId": "txtPtClaims"
+      },
+      {
+        "line": 730,
+        "getter": "getTXelem",
+        "fieldId": "txtOnset"
+      },
+      {
+        "line": 735,
+        "getter": "getTXelem",
+        "fieldId": "txtProvokes"
+      },
+      {
+        "line": 740,
+        "getter": "getTXelem",
+        "fieldId": "txtQuality"
+      },
+      {
+        "line": 745,
+        "getter": "getTXelem",
+        "fieldId": "txtRadiates"
+      },
+      {
+        "line": 750,
+        "getter": "getTXelem",
+        "fieldId": "txtSeverity"
+      },
+      {
+        "line": 755,
+        "getter": "getTXelem",
+        "fieldId": "txtTime"
+      },
+      {
+        "line": 760,
+        "getter": "getTXelem",
+        "fieldId": "txtHxSimilar"
+      },
+      {
+        "line": 806,
+        "getter": "getTXelem",
+        "fieldId": "txtPastMedHx"
+      },
+      {
+        "line": 814,
+        "getter": "getTXelem",
+        "fieldId": "txtRxMeds"
+      },
+      {
+        "line": 824,
+        "getter": "getCBelem",
+        "fieldId": "cbOTCAspirin"
+      },
+      {
+        "line": 825,
+        "getter": "getCBelem",
+        "fieldId": "cbOTCApap"
+      },
+      {
+        "line": 826,
+        "getter": "getCBelem",
+        "fieldId": "cbOTCIbuprofen"
+      },
+      {
+        "line": 827,
+        "getter": "getTXelem",
+        "fieldId": "txtOTCOther"
+      },
+      {
+        "line": 868,
+        "getter": "getCBelem",
+        "fieldId": "cbNKDA"
+      },
+      {
+        "line": 869,
+        "getter": "getCBelem",
+        "fieldId": "cbAllergiesPCN"
+      },
+      {
+        "line": 870,
+        "getter": "getCBelem",
+        "fieldId": "cbAllergiesSulfa"
+      },
+      {
+        "line": 871,
+        "getter": "getTXelem",
+        "fieldId": "txtAllergies"
+      },
+      {
+        "line": 912,
+        "getter": "getDLelem",
+        "fieldId": "ddlHospital"
+      },
+      {
+        "line": 919,
+        "getter": "getDLelem",
+        "fieldId": "ddlHospitalReason"
+      }
+    ]
+  },
+  "writeObj": {
+    "startLine": 929,
+    "fields": [
+      {
+        "line": 944,
+        "getter": "getTXelem",
+        "fieldId": "txtAge"
+      },
+      {
+        "line": 945,
+        "getter": "getTXelem",
+        "fieldId": "weightkg"
+      },
+      {
+        "line": 946,
+        "getter": "getTXelem",
+        "fieldId": "weightlb"
+      },
+      {
+        "line": 947,
+        "getter": "getRBelem",
+        "fieldId": "rbGender"
+      },
+      {
+        "line": 955,
+        "getter": "getDLelem",
+        "fieldId": "ddlYears"
+      },
+      {
+        "line": 981,
+        "getter": "getRBelem",
+        "fieldId": "rbMent"
+      },
+      {
+        "line": 986,
+        "getter": "getCBelem",
+        "fieldId": "cbAlertPerson"
+      },
+      {
+        "line": 987,
+        "getter": "getCBelem",
+        "fieldId": "cbAlertPlace"
+      },
+      {
+        "line": 988,
+        "getter": "getCBelem",
+        "fieldId": "cbAlertTime"
+      },
+      {
+        "line": 989,
+        "getter": "getCBelem",
+        "fieldId": "cbAlertSituation"
+      },
+      {
+        "line": 1021,
+        "getter": "getRBelem",
+        "fieldId": "rbMentNA"
+      },
+      {
+        "line": 1037,
+        "getter": "getTXelem",
+        "fieldId": "txtGenImpression"
+      },
+      {
+        "line": 1044,
+        "getter": "getRBelem",
+        "fieldId": "rblAirway"
+      },
+      {
+        "line": 1054,
+        "getter": "getRBelem",
+        "fieldId": "rblBreathReg"
+      },
+      {
+        "line": 1055,
+        "getter": "getRBelem",
+        "fieldId": "rblBreathRate"
+      },
+      {
+        "line": 1056,
+        "getter": "getRBelem",
+        "fieldId": "rblBreathDepth"
+      },
+      {
+        "line": 1057,
+        "getter": "getRBelem",
+        "fieldId": "rblBreathEffort"
+      },
+      {
+        "line": 1086,
+        "getter": "getTXelem",
+        "fieldId": "txtCirculation"
+      },
+      {
+        "line": 1092,
+        "getter": "getCBelem",
+        "fieldId": "cbCircNoBleeding"
+      },
+      {
+        "line": 1106,
+        "getter": "getRBelem",
+        "fieldId": "rblSkinColor"
+      },
+      {
+        "line": 1107,
+        "getter": "getRBelem",
+        "fieldId": "rblSkinTemp"
+      },
+      {
+        "line": 1108,
+        "getter": "getRBelem",
+        "fieldId": "rblSkinDryness"
+      },
+      {
+        "line": 1109,
+        "getter": "getCBelem",
+        "fieldId": "cbCapRefill"
+      },
+      {
+        "line": 1134,
+        "getter": "getTXelem",
+        "fieldId": "txtSkinCapRefill"
+      },
+      {
+        "line": 1150,
+        "getter": "getRBelem",
+        "fieldId": "rblPulsePosition"
+      },
+      {
+        "line": 1151,
+        "getter": "getRBelem",
+        "fieldId": "rblPulseRate"
+      },
+      {
+        "line": 1152,
+        "getter": "getRBelem",
+        "fieldId": "rblPulseRhythm"
+      },
+      {
+        "line": 1153,
+        "getter": "getRBelem",
+        "fieldId": "rblPulseStrength"
+      },
+      {
+        "line": 1190,
+        "getter": "getTXelem",
+        "fieldId": "pupilsLeft"
+      },
+      {
+        "line": 1191,
+        "getter": "getTXelem",
+        "fieldId": "pupilsRight"
+      },
+      {
+        "line": 1221,
+        "getter": "getCBelem",
+        "fieldId": "cbBS"
+      },
+      {
+        "line": 1416,
+        "getter": "getCBelem",
+        "fieldId": "cbPROPnone"
+      },
+      {
+        "line": 1422,
+        "getter": "getTXelem",
+        "fieldId": "txtPROP"
+      }
+    ]
+  },
+  "write_ASSPEC_CHESTPAIN": {
+    "startLine": 1513,
+    "fields": [
+      {
+        "line": 1515,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_chestpain_edema"
+      },
+      {
+        "line": 1516,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_chestpain_ascites"
+      },
+      {
+        "line": 1517,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_chestpain_JVD"
+      },
+      {
+        "line": 1518,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_chestpain_backpain"
+      },
+      {
+        "line": 1519,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_chestpain_doc"
+      }
+    ]
+  },
+  "write_ASSPEC_HTN": {
+    "startLine": 1523,
+    "fields": [
+      {
+        "line": 1525,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_HTN_medications"
+      },
+      {
+        "line": 1526,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_HTN_photophobia"
+      },
+      {
+        "line": 1527,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_HTN_cardiogenic"
+      },
+      {
+        "line": 1528,
+        "getter": "getCBelem",
+        "fieldId": "ASSPEC_HTN_rigidity"
+      },
+      {
+        "line": 1529,
+        "getter": "getCBelem",
+        "fieldId": "ASSPEC_HTN_brudzinski"
+      },
+      {
+        "line": 1530,
+        "getter": "getCBelem",
+        "fieldId": "ASSPEC_HTN_kernig"
+      }
+    ]
+  },
+  "write_ASSPEC_HYPERG": {
+    "startLine": 1534,
+    "fields": [
+      {
+        "line": 1536,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_HYPERG_history"
+      },
+      {
+        "line": 1537,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_HYPERG_medications"
+      },
+      {
+        "line": 1539,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_HYPERG_oral"
+      },
+      {
+        "line": 1541,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_HYPERG_duration"
+      },
+      {
+        "line": 1542,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_HYPERG_dehydration"
+      },
+      {
+        "line": 1543,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_HYPERG_abpn"
+      },
+      {
+        "line": 1544,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_HYPERG_alcohol"
+      },
+      {
+        "line": 1545,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_HYPERG_seizures"
+      },
+      {
+        "line": 1546,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_HYPERG_infection"
+      },
+      {
+        "line": 1547,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_HYPERG_overdose"
+      },
+      {
+        "line": 1548,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_HYPERG_uremia"
+      },
+      {
+        "line": 1549,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_HYPERG_trauma"
+      },
+      {
+        "line": 1550,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_HYPERG_psych"
+      },
+      {
+        "line": 1551,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_HYPERG_shock"
+      },
+      {
+        "line": 1552,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_HYPERG_stroke"
+      }
+    ]
+  },
+  "write_ASSPEC_HYPOG": {
+    "startLine": 1556,
+    "fields": [
+      {
+        "line": 1558,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_HYPOG_history"
+      },
+      {
+        "line": 1559,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_HYPOG_medications"
+      },
+      {
+        "line": 1561,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_HYPOG_insulin"
+      },
+      {
+        "line": 1563,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_HYPOG_inschedule"
+      },
+      {
+        "line": 1565,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_HYPOG_oral"
+      },
+      {
+        "line": 1567,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_HYPOG_duration"
+      },
+      {
+        "line": 1569,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_HYPOG_nutrition"
+      },
+      {
+        "line": 1570,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_HYPOG_alcohol"
+      },
+      {
+        "line": 1571,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_HYPOG_seizures"
+      },
+      {
+        "line": 1572,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_HYPOG_infection"
+      },
+      {
+        "line": 1573,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_HYPOG_overdose"
+      },
+      {
+        "line": 1574,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_HYPOG_uremia"
+      },
+      {
+        "line": 1575,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_HYPOG_trauma"
+      },
+      {
+        "line": 1576,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_HYPOG_psych"
+      },
+      {
+        "line": 1577,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_HYPOG_shock"
+      },
+      {
+        "line": 1578,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_HYPOG_stroke"
+      }
+    ]
+  },
+  "write_ASSPEC_ALT": {
+    "startLine": 1582,
+    "fields": [
+      {
+        "line": 1585,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_ALT_home"
+      },
+      {
+        "line": 1587,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_ALT_time"
+      }
+    ]
+  },
+  "write_ASSPEC_BITE": {
+    "startLine": 1591,
+    "fields": [
+      {
+        "line": 1594,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_BITE_time"
+      },
+      {
+        "line": 1596,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_BITE_type"
+      },
+      {
+        "line": 1598,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_BITE_id"
+      },
+      {
+        "line": 1600,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_BITE_activity"
+      },
+      {
+        "line": 1602,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_BITE_site"
+      }
+    ]
+  },
+  "write_ASSPEC_BURN": {
+    "startLine": 1606,
+    "fields": [
+      {
+        "line": 1609,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_BURN_method"
+      },
+      {
+        "line": 1611,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_BURN_percentage"
+      },
+      {
+        "line": 1613,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_BURN_depth"
+      },
+      {
+        "line": 1615,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_BURN_location"
+      },
+      {
+        "line": 1616,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_BURN_respiratory"
+      },
+      {
+        "line": 1617,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_BURN_doc"
+      }
+    ]
+  },
+  "write_ASSPEC_CO": {
+    "startLine": 1621,
+    "fields": [
+      {
+        "line": 1624,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_CO_environment"
+      },
+      {
+        "line": 1626,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_CO_type"
+      },
+      {
+        "line": 1628,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_CO_duration"
+      },
+      {
+        "line": 1630,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_CO_coreading"
+      },
+      {
+        "line": 1632,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_CO_coox"
+      }
+    ]
+  },
+  "write_ASSPEC_HYPOT": {
+    "startLine": 1636,
+    "fields": [
+      {
+        "line": 1639,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_HYPOT_environment"
+      },
+      {
+        "line": 1641,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_HYPOT_temperature"
+      },
+      {
+        "line": 1643,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_HYPOT_location"
+      },
+      {
+        "line": 1645,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_HYPOT_duration"
+      },
+      {
+        "line": 1647,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_HYPOT_warm"
+      }
+    ]
+  },
+  "write_ASSPEC_HAZMAT": {
+    "startLine": 1651,
+    "fields": [
+      {
+        "line": 1654,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_HAZMAT_exposure"
+      },
+      {
+        "line": 1656,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_HAZMAT_duration"
+      },
+      {
+        "line": 1658,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_HAZMAT_pta"
+      },
+      {
+        "line": 1660,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_HAZMAT_id"
+      },
+      {
+        "line": 1662,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_HAZMAT_decon"
+      },
+      {
+        "line": 1663,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_HAZMAT_doc"
+      }
+    ]
+  },
+  "write_ASSPEC_HYPERT": {
+    "startLine": 1667,
+    "fields": [
+      {
+        "line": 1670,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_HYPERT_ambient"
+      },
+      {
+        "line": 1672,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_HYPERT_body"
+      },
+      {
+        "line": 1674,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_HYPERT_cool"
+      },
+      {
+        "line": 1676,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_HYPERT_factors"
+      }
+    ]
+  },
+  "write_ASSPEC_ABPN": {
+    "startLine": 1680,
+    "fields": [
+      {
+        "line": 1683,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_ABPN_history"
+      },
+      {
+        "line": 1685,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_ABPN_surgeries"
+      },
+      {
+        "line": 1686,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_ABPN_nausea"
+      },
+      {
+        "line": 1687,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_ABPN_vomiting"
+      },
+      {
+        "line": 1688,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_ABPN_diarrhea"
+      },
+      {
+        "line": 1689,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_ABPN_fever"
+      },
+      {
+        "line": 1690,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_ABPN_pain"
+      },
+      {
+        "line": 1691,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_ABPN_trauma"
+      },
+      {
+        "line": 1692,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_ABPN_doc"
+      }
+    ]
+  },
+  "write_ASSPEC_DEHYD": {
+    "startLine": 1696,
+    "fields": [
+      {
+        "line": 1699,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_DEHYD_travel"
+      },
+      {
+        "line": 1701,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_DEHYD_frequency"
+      },
+      {
+        "line": 1703,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_DEHYD_diet"
+      },
+      {
+        "line": 1705,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_DEHYD_history"
+      },
+      {
+        "line": 1707,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_DEHYD_description"
+      },
+      {
+        "line": 1708,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_DEHYD_origin"
+      },
+      {
+        "line": 1709,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_DEHYD_temperature"
+      }
+    ]
+  },
+  "write_ASSPEC_GI": {
+    "startLine": 1713,
+    "fields": [
+      {
+        "line": 1715,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_GI_ulcers"
+      },
+      {
+        "line": 1716,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_GI_etoh"
+      },
+      {
+        "line": 1718,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_GI_description"
+      },
+      {
+        "line": 1719,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_GI_origin"
+      }
+    ]
+  },
+  "write_ASSPEC_FLU": {
+    "startLine": 1723,
+    "fields": [
+      {
+        "line": 1725,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_FLU_nystagmus"
+      },
+      {
+        "line": 1727,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_FLU_trauma"
+      },
+      {
+        "line": 1729,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_FLU_description"
+      },
+      {
+        "line": 1731,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_FLU_provokes"
+      },
+      {
+        "line": 1732,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_FLU_doc"
+      }
+    ]
+  },
+  "write_ASSPEC_AMS": {
+    "startLine": 1736,
+    "fields": [
+      {
+        "line": 1738,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_AMS_nystagmus"
+      },
+      {
+        "line": 1739,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_AMS_double"
+      },
+      {
+        "line": 1740,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_AMS_ataxia"
+      },
+      {
+        "line": 1741,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_AMS_origin"
+      },
+      {
+        "line": 1742,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_AMS_alcohol"
+      },
+      {
+        "line": 1743,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_AMS_seizures"
+      },
+      {
+        "line": 1744,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_AMS_infection"
+      },
+      {
+        "line": 1745,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_AMS_diabetes"
+      },
+      {
+        "line": 1746,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_AMS_overdose"
+      },
+      {
+        "line": 1747,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_AMS_uremia"
+      },
+      {
+        "line": 1748,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_AMS_trauma"
+      },
+      {
+        "line": 1749,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_AMS_psych"
+      },
+      {
+        "line": 1750,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_AMS_shock"
+      },
+      {
+        "line": 1751,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_AMS_stroke"
+      }
+    ]
+  },
+  "write_ASSPEC_CVA": {
+    "startLine": 1755,
+    "fields": [
+      {
+        "line": 1757,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_CVA_aphasia"
+      },
+      {
+        "line": 1758,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_CVA_dysphasia"
+      },
+      {
+        "line": 1759,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_CVA_droop"
+      },
+      {
+        "line": 1760,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_CVA_drift"
+      },
+      {
+        "line": 1761,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_CVA_nystagmus"
+      },
+      {
+        "line": 1763,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_CVA_time"
+      }
+    ]
+  },
+  "write_ASSPEC_SYNC": {
+    "startLine": 1767,
+    "fields": [
+      {
+        "line": 1770,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_SYNC_events"
+      },
+      {
+        "line": 1772,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_SYNC_history"
+      },
+      {
+        "line": 1773,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_SYNC_trauma"
+      },
+      {
+        "line": 1774,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_SYNC_vertigo"
+      },
+      {
+        "line": 1775,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_SYNC_seizure"
+      },
+      {
+        "line": 1776,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_SYNC_fluid"
+      }
+    ]
+  },
+  "write_ASSPEC_SZ": {
+    "startLine": 1780,
+    "fields": [
+      {
+        "line": 1782,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_SZ_history"
+      },
+      {
+        "line": 1783,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_SZ_compliant"
+      },
+      {
+        "line": 1784,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_SZ_aura"
+      },
+      {
+        "line": 1785,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_SZ_oral"
+      },
+      {
+        "line": 1786,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_SZ_incontinence"
+      },
+      {
+        "line": 1787,
+        "getter": "getCBelem",
+        "fieldId": "ASSPEC_SZ_rigidity"
+      },
+      {
+        "line": 1788,
+        "getter": "getCBelem",
+        "fieldId": "ASSPEC_SZ_brudzinski"
+      },
+      {
+        "line": 1789,
+        "getter": "getCBelem",
+        "fieldId": "ASSPEC_SZ_kernig"
+      },
+      {
+        "line": 1791,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_SZ_activity"
+      },
+      {
+        "line": 1793,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_SZ_postictal"
+      }
+    ]
+  },
+  "write_ASSPEC_OB": {
+    "startLine": 1797,
+    "fields": [
+      {
+        "line": 1800,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_OB_contractions"
+      },
+      {
+        "line": 1802,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_OB_timing"
+      },
+      {
+        "line": 1803,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_OB_water"
+      },
+      {
+        "line": 1805,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_OB_amniotic"
+      },
+      {
+        "line": 1807,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_OB_gravida"
+      },
+      {
+        "line": 1809,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_OB_para"
+      },
+      {
+        "line": 1811,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_OB_duedate"
+      },
+      {
+        "line": 1813,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_OB_problems"
+      },
+      {
+        "line": 1815,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_OB_prenatal"
+      },
+      {
+        "line": 1817,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_OB_social"
+      }
+    ]
+  },
+  "write_ASSPEC_BIRTH": {
+    "startLine": 1821,
+    "fields": [
+      {
+        "line": 1824,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_BIRTH_duedate"
+      },
+      {
+        "line": 1826,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_BIRTH_birthtime"
+      },
+      {
+        "line": 1828,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_BIRTH_presentation"
+      },
+      {
+        "line": 1829,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_BIRTH_sex"
+      },
+      {
+        "line": 1831,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_BIRTH_cord"
+      },
+      {
+        "line": 1832,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_BIRTH_placenta"
+      },
+      {
+        "line": 1833,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_BIRTH_meconium"
+      },
+      {
+        "line": 1837,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_BIRTH_1activity"
+      },
+      {
+        "line": 1838,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_BIRTH_1pulse"
+      },
+      {
+        "line": 1839,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_BIRTH_1grimace"
+      },
+      {
+        "line": 1840,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_BIRTH_1appearance"
+      },
+      {
+        "line": 1841,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_BIRTH_1respiration"
+      },
+      {
+        "line": 1845,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_BIRTH_5activity"
+      },
+      {
+        "line": 1846,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_BIRTH_5pulse"
+      },
+      {
+        "line": 1847,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_BIRTH_5grimace"
+      },
+      {
+        "line": 1848,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_BIRTH_5appearance"
+      },
+      {
+        "line": 1849,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_BIRTH_5respiration"
+      }
+    ]
+  },
+  "write_ASSPEC_VAG": {
+    "startLine": 1859,
+    "fields": [
+      {
+        "line": 1861,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_VAG_possibility"
+      },
+      {
+        "line": 1863,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_VAG_duedate"
+      },
+      {
+        "line": 1865,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_VAG_period"
+      },
+      {
+        "line": 1867,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_VAG_volume"
+      },
+      {
+        "line": 1869,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_VAG_blood"
+      },
+      {
+        "line": 1871,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_VAG_history"
+      },
+      {
+        "line": 1872,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_VAG_trauma"
+      },
+      {
+        "line": 1873,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_VAG_abuse"
+      }
+    ]
+  },
+  "write_ASSPEC_NPAIN": {
+    "startLine": 1877,
+    "fields": [
+      {
+        "line": 1879,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_NPAIN_chronic"
+      },
+      {
+        "line": 1881,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_NPAIN_frequency"
+      },
+      {
+        "line": 1883,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_NPAIN_location"
+      },
+      {
+        "line": 1885,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_NPAIN_distribution"
+      },
+      {
+        "line": 1886,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_NPAIN_doc"
+      }
+    ]
+  },
+  "write_ASSPEC_PSYCH": {
+    "startLine": 1890,
+    "fields": [
+      {
+        "line": 1892,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_PSYCH_suicidal"
+      },
+      {
+        "line": 1894,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_PSYCH_plan"
+      },
+      {
+        "line": 1896,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_PSYCH_ability"
+      },
+      {
+        "line": 1897,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_PSYCH_depression"
+      },
+      {
+        "line": 1898,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_PSYCH_history"
+      },
+      {
+        "line": 1899,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_PSYCH_etoh"
+      },
+      {
+        "line": 1900,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_PSYCH_onset"
+      },
+      {
+        "line": 1901,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_PSYCH_compliant"
+      }
+    ]
+  },
+  "write_ASSPEC_APNEA": {
+    "startLine": 1905,
+    "fields": [
+      {
+        "line": 1908,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_APNEA_duration"
+      },
+      {
+        "line": 1910,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_APNEA_treatment"
+      },
+      {
+        "line": 1912,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_APNEA_history"
+      }
+    ]
+  },
+  "write_ASSPEC_RESP": {
+    "startLine": 1916,
+    "fields": [
+      {
+        "line": 1919,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_RESP_duration"
+      },
+      {
+        "line": 1921,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_RESP_treatment"
+      },
+      {
+        "line": 1923,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_RESP_history"
+      },
+      {
+        "line": 1925,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_RESP_intubations"
+      },
+      {
+        "line": 1926,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_RESP_JVD"
+      },
+      {
+        "line": 1927,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_RESP_reflex"
+      },
+      {
+        "line": 1928,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_RESP_edema"
+      },
+      {
+        "line": 1929,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_RESP_ascites"
+      }
+    ]
+  },
+  "write_ASSPEC_SHOCK": {
+    "startLine": 1933,
+    "fields": [
+      {
+        "line": 1935,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_SHOCK_JVD"
+      }
+    ]
+  },
+  "write_ASSPEC_OD": {
+    "startLine": 1939,
+    "fields": [
+      {
+        "line": 1942,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_OD_type"
+      },
+      {
+        "line": 1944,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_OD_id"
+      },
+      {
+        "line": 1945,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_OD_intention"
+      },
+      {
+        "line": 1946,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_OD_contact"
+      }
+    ]
+  },
+  "write_ASSPEC_TRAUMA": {
+    "startLine": 2070,
+    "fields": [
+      {
+        "line": 2073,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_TRAUMA_mechanism"
+      },
+      {
+        "line": 2075,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_TRAUMA_safety"
+      },
+      {
+        "line": 2076,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_TRAUMA_intentional"
+      },
+      {
+        "line": 2077,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_TRAUMA_doc"
+      }
+    ]
+  },
+  "write_ASSPEC_NOSE": {
+    "startLine": 2081,
+    "fields": [
+      {
+        "line": 2083,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_NOSE_hypert"
+      },
+      {
+        "line": 2084,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_NOSE_thinner"
+      },
+      {
+        "line": 2085,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_NOSE_cart"
+      },
+      {
+        "line": 2087,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_NOSE_trauma"
+      }
+    ]
+  },
+  "write_ASSPEC_FEVER": {
+    "startLine": 2091,
+    "fields": [
+      {
+        "line": 2093,
+        "getter": "getCBelem",
+        "fieldId": "ASSPEC_FEVER_rigidity"
+      },
+      {
+        "line": 2094,
+        "getter": "getCBelem",
+        "fieldId": "ASSPEC_FEVER_brudzinski"
+      },
+      {
+        "line": 2095,
+        "getter": "getCBelem",
+        "fieldId": "ASSPEC_FEVER_kernig"
+      }
+    ]
+  },
+  "write_ASSPEC_SEX": {
+    "startLine": 2099,
+    "fields": [
+      {
+        "line": 2102,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_SEX_trauma"
+      },
+      {
+        "line": 2104,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_SEX_evidence"
+      }
+    ]
+  },
+  "write_ASSPEC_ALLERGIC": {
+    "startLine": 2108,
+    "fields": [
+      {
+        "line": 2110,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_ALLERGY_hives"
+      },
+      {
+        "line": 2111,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_ALLERGY_red"
+      },
+      {
+        "line": 2112,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_ALLERGY_angio"
+      },
+      {
+        "line": 2113,
+        "getter": "getRBelem",
+        "fieldId": "ASSPEC_ALLERGY_rhino"
+      },
+      {
+        "line": 2115,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_ALLERGY_cause"
+      },
+      {
+        "line": 2117,
+        "getter": "getTXelem",
+        "fieldId": "ASSPEC_ALLERGY_history"
+      }
+    ]
+  },
+  "writeAss": {
+    "startLine": 2127,
+    "fields": [
+      {
+        "line": 2132,
+        "getter": "getTXelem",
+        "fieldId": "txtASSESS"
+      },
+      {
+        "line": 2133,
+        "getter": "getRBelem",
+        "fieldId": "rbASSESS_severity"
+      }
+    ]
+  },
+  "writeEnding": {
+    "startLine": 5067,
+    "fields": [
+      {
+        "line": 5075,
+        "getter": "getTXelem",
+        "fieldId": "endAuthor"
+      },
+      {
+        "line": 5076,
+        "getter": "getTXelem",
+        "fieldId": "endTime"
+      }
+    ]
+  }
+}

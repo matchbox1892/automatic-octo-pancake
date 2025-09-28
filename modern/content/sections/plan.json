@@ -1,0 +1,22 @@
+{
+  "id": "plan",
+  "title": "Plan",
+  "description": "Treatments provided, transport, and handoff details.",
+  "fields": [
+    {
+      "id": "plan.treatments",
+      "label": "Treatments",
+      "type": "textarea"
+    },
+    {
+      "id": "plan.transport",
+      "label": "Transport Destination",
+      "type": "text"
+    },
+    {
+      "id": "plan.notes",
+      "label": "Additional Notes",
+      "type": "textarea"
+    }
+  ]
+}

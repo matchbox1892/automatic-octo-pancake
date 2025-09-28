@@ -1,0 +1,23 @@
+.banner {
+  background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+  color: #ffffff;
+  padding: 1.75rem 2rem;
+  border-radius: 20px;
+  box-shadow: 0 18px 30px rgba(29, 78, 216, 0.25);
+}
+
+.banner h1 {
+  margin: 0 0 0.5rem;
+  font-size: 1.75rem;
+}
+
+.banner p {
+  margin: 0;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.panel {
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #0f172a, #1d4ed8);
+}

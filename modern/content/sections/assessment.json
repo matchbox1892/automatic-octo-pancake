@@ -1,0 +1,18 @@
+{
+  "id": "assessment",
+  "title": "Assessment",
+  "description": "Clinical impression and working diagnoses.",
+  "fields": [
+    {
+      "id": "assessment.primary",
+      "label": "Primary Impression",
+      "type": "text",
+      "placeholder": "Example: Acute chest pain"
+    },
+    {
+      "id": "assessment.secondary",
+      "label": "Secondary Impression",
+      "type": "text"
+    }
+  ]
+}

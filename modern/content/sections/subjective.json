@@ -1,0 +1,18 @@
+{
+  "id": "subjective",
+  "title": "Subjective",
+  "description": "Chief complaint, history, and patient statements captured during the call.",
+  "fields": [
+    {
+      "id": "subjective.chiefComplaint",
+      "label": "Chief Complaint",
+      "type": "textarea",
+      "placeholder": "Patient states..."
+    },
+    {
+      "id": "subjective.historyOfPresentIllness",
+      "label": "History of Present Illness",
+      "type": "textarea"
+    }
+  ]
+}

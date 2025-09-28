@@ -1,0 +1,6 @@
+node_modules/
+.next/
+.env*
+*.log
+modern/.next/
+modern/node_modules/

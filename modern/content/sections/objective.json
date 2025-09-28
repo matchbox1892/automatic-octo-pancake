@@ -1,0 +1,18 @@
+{
+  "id": "objective",
+  "title": "Objective",
+  "description": "Vitals, exam findings, and observable facts.",
+  "fields": [
+    {
+      "id": "objective.vitals",
+      "label": "Vital Signs",
+      "type": "textarea",
+      "placeholder": "BP 120/80, HR 80, RR 16..."
+    },
+    {
+      "id": "objective.exam",
+      "label": "Physical Exam",
+      "type": "textarea"
+    }
+  ]
+}
