@@ -31,6 +31,25 @@ function lowercaseFirst(value: string): string {
   return value.charAt(0).toLowerCase() + value.slice(1);
 }
 
+function buildLabeledNarrative(
+  entries: Array<{ label: string; value?: string }>
+): string {
+  return entries
+    .map(({ label, value }) => {
+      const formatted = stripSentence(value ?? "");
+      if (!formatted) {
+        return "";
+      }
+      const normalized =
+        formatted === formatted.toUpperCase()
+          ? formatted
+          : lowercaseFirst(formatted);
+      return `${label} ${normalized}`;
+    })
+    .filter(Boolean)
+    .join("; ");
+}
+
 function buildList(
   sectionId: string,
   fieldId: string,
@@ -94,11 +113,40 @@ export function renderNarrative(formData: NarrativeFormData): string {
   ).toLowerCase();
   const subjectivePainScale = stripSentence(formData.subjective.painScale);
   const subjectiveNotes = sanitizeFreeText(formData.subjective.notes);
-  const subjectiveHasNarrative = Boolean(
+  const subjectiveHasBaseNarrative = Boolean(
     subjectiveChiefComplaint ||
       subjectiveHistoryProvider ||
       subjectiveSymptoms ||
       subjectivePainScale
+  );
+  const subjectiveOpqrstSummary = buildLabeledNarrative([
+    { label: "Onset", value: formData.subjective.opqrstOnset },
+    { label: "Provocation", value: formData.subjective.opqrstProvocation },
+    { label: "Quality", value: formData.subjective.opqrstQuality },
+    { label: "Radiation", value: formData.subjective.opqrstRadiation },
+    { label: "Severity", value: formData.subjective.opqrstSeverity },
+    { label: "Time", value: formData.subjective.opqrstTimeCourse }
+  ]);
+  const subjectiveOpqrstSentence = subjectiveOpqrstSummary
+    ? `OPQRST: ${subjectiveOpqrstSummary}.`
+    : "";
+  const subjectiveSampleSummary = buildLabeledNarrative([
+    { label: "Allergies", value: formData.subjective.sampleAllergies },
+    { label: "Medications", value: formData.subjective.sampleMedications },
+    { label: "Past hx", value: formData.subjective.samplePastHistory },
+    { label: "Last intake", value: formData.subjective.sampleLastIntake },
+    { label: "Events", value: formData.subjective.sampleEvents }
+  ]);
+  const subjectiveSampleSentence = subjectiveSampleSummary
+    ? `SAMPLE: ${subjectiveSampleSummary}.`
+    : "";
+  const subjectiveHasOpqrst = Boolean(subjectiveOpqrstSentence);
+  const subjectiveHasSample = Boolean(subjectiveSampleSentence);
+  const subjectiveHasNarrative = Boolean(
+    subjectiveHasBaseNarrative || subjectiveHasOpqrst || subjectiveHasSample
+  );
+  const subjectiveHasLeadBeforeSample = Boolean(
+    subjectiveHasBaseNarrative || subjectiveHasOpqrst
   );
 
   const objectivePrimaryImpression = formData.objective.primaryImpression
@@ -167,7 +215,13 @@ export function renderNarrative(formData: NarrativeFormData): string {
       symptomsList: subjectiveSymptoms,
       painScaleText: subjectivePainScale,
       notes: subjectiveNotes,
-      hasNarrative: subjectiveHasNarrative
+      hasNarrative: subjectiveHasNarrative,
+      hasBaseNarrative: subjectiveHasBaseNarrative,
+      hasOpqrst: subjectiveHasOpqrst,
+      hasSample: subjectiveHasSample,
+      opqrstSentence: subjectiveOpqrstSentence,
+      sampleSentence: subjectiveSampleSentence,
+      hasLeadBeforeSample: subjectiveHasLeadBeforeSample
     },
     objective: {
       ...formData.objective,

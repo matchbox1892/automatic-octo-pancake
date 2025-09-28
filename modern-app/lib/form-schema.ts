@@ -13,7 +13,18 @@ export const SubjectiveSchema = z.object({
   historyProvider: z.string().optional(),
   symptoms: z.array(z.string()).default([]),
   painScale: z.string().optional(),
-  notes: z.string().optional()
+  notes: z.string().optional(),
+  opqrstOnset: z.string().optional(),
+  opqrstProvocation: z.string().optional(),
+  opqrstQuality: z.string().optional(),
+  opqrstRadiation: z.string().optional(),
+  opqrstSeverity: z.string().optional(),
+  opqrstTimeCourse: z.string().optional(),
+  sampleAllergies: z.string().optional(),
+  sampleMedications: z.string().optional(),
+  samplePastHistory: z.string().optional(),
+  sampleLastIntake: z.string().optional(),
+  sampleEvents: z.string().optional()
 });
 
 export const ObjectiveSchema = z.object({

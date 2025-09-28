@@ -47,6 +47,73 @@
       "label": "Subjective Notes",
       "rows": 4,
       "helperText": "Summarize SAMPLE history, OPQRST findings, and patient statements."
+    },
+    {
+      "id": "opqrstOnset",
+      "type": "text",
+      "label": "Onset",
+      "placeholder": "When did the symptoms begin?",
+      "helperText": "Document the OPQRST onset statement."
+    },
+    {
+      "id": "opqrstProvocation",
+      "type": "text",
+      "label": "Provocation/Palliation",
+      "placeholder": "What makes it better or worse?"
+    },
+    {
+      "id": "opqrstQuality",
+      "type": "text",
+      "label": "Quality",
+      "placeholder": "Describe the symptom quality"
+    },
+    {
+      "id": "opqrstRadiation",
+      "type": "text",
+      "label": "Radiation",
+      "placeholder": "Does the pain travel anywhere?"
+    },
+    {
+      "id": "opqrstSeverity",
+      "type": "text",
+      "label": "Severity Description",
+      "placeholder": "Describe severity beyond the numeric scale"
+    },
+    {
+      "id": "opqrstTimeCourse",
+      "type": "text",
+      "label": "Time Course",
+      "placeholder": "How has the symptom progressed?"
+    },
+    {
+      "id": "sampleAllergies",
+      "type": "text",
+      "label": "Allergies",
+      "placeholder": "e.g. NKDA"
+    },
+    {
+      "id": "sampleMedications",
+      "type": "text",
+      "label": "Medications",
+      "placeholder": "List current medications"
+    },
+    {
+      "id": "samplePastHistory",
+      "type": "text",
+      "label": "Past Medical History",
+      "placeholder": "Pertinent history notes"
+    },
+    {
+      "id": "sampleLastIntake",
+      "type": "text",
+      "label": "Last Oral Intake",
+      "placeholder": "Last intake of food or drink"
+    },
+    {
+      "id": "sampleEvents",
+      "type": "text",
+      "label": "Events Leading Up",
+      "placeholder": "What happened prior to EMS arrival?"
     }
   ]
 }
