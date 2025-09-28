@@ -4,20 +4,20 @@ This plan translates the archived SOAPCR/MatchCloud static export into a maintai
 
 ## 1. Source Inventory and Baseline Understanding
 
-- **HTML structure** — `soapcr.com/index.html` contains every UI panel (Subjective, Objective, Assessment, Plan, etc.) plus supporting banners, menu shell, and over 2,600 unique element IDs that drive narrative assembly and dynamic behaviors.【F:soapcr.com/index.html†L1-L320】
-- **Client logic** — `soapcr.com/public/proversion/soapcrpro/soapcrpro.js` wires UI behaviors: collapsing sections, syncing age/sex, copying addresses, conditionally showing elements, plan item cards, and global state updates (e.g., `setUsage`).【F:soapcr.com/public/proversion/soapcrpro/soapcrpro.js†L1-L120】
-- **Narrative writer** — `soapcr.com/public/proversion/soapcrpro/writepcrpro.js` contains 5,600 lines of output rules, mapping every checkbox, text field, and dropdown to the final SOAP narrative with contextual punctuation and phrasing.【F:soapcr.com/public/proversion/soapcrpro/writepcrpro.js†L1-L160】
+- **HTML structure** — `legacy/soapcr/index.html` contains every UI panel (Subjective, Objective, Assessment, Plan, etc.) plus supporting banners, menu shell, and over 2,600 unique element IDs that drive narrative assembly and dynamic behaviors.【F:legacy/soapcr/index.html†L1-L320】
+- **Client logic** — `legacy/soapcr/public/proversion/soapcrpro/soapcrpro.js` wires UI behaviors: collapsing sections, syncing age/sex, copying addresses, conditionally showing elements, plan item cards, and global state updates (e.g., `setUsage`).【F:legacy/soapcr/public/proversion/soapcrpro/soapcrpro.js†L1-L120】
+- **Narrative writer** — `legacy/soapcr/public/proversion/soapcrpro/writepcrpro.js` contains 5,600 lines of output rules, mapping every checkbox, text field, and dropdown to the final SOAP narrative with contextual punctuation and phrasing.【F:legacy/soapcr/public/proversion/soapcrpro/writepcrpro.js†L1-L160】
 - **Field map artifacts** — Generated references in `docs/field-map.json` enumerate which writer function consumes each field. Tables in `docs/source-analysis.md` present the same data in Markdown for human review. Dropdown vocabularies are captured in `docs/dropdown-options.json` to guarantee menu parity.
 
 ## 2. Functional Requirements for Parity
 
 1. **UI equivalence**
-   - Recreate all Subjective, Objective, Assessment, and Plan inputs, preserving checkbox groups, free-text areas, dropdowns, and dynamic sub-panels (e.g., Assessment Specific tables) from the legacy HTML.【F:soapcr.com/index.html†L160-L320】
+   - Recreate all Subjective, Objective, Assessment, and Plan inputs, preserving checkbox groups, free-text areas, dropdowns, and dynamic sub-panels (e.g., Assessment Specific tables) from the legacy HTML.【F:legacy/soapcr/index.html†L160-L320】
    - Maintain header/menu interactions and dual-banner placement so the modernization feels familiar.
 2. **State & validation**
-   - Mirror age/sex synchronization, address copying, and conditional visibility logic from `soapcrpro.js`. Ensure RHF/Zustand equivalents react to blur/change events as the legacy jQuery implementation does.【F:soapcr.com/public/proversion/soapcrpro/soapcrpro.js†L1-L120】
+   - Mirror age/sex synchronization, address copying, and conditional visibility logic from `soapcrpro.js`. Ensure RHF/Zustand equivalents react to blur/change events as the legacy jQuery implementation does.【F:legacy/soapcr/public/proversion/soapcrpro/soapcrpro.js†L1-L120】
 3. **Narrative composition**
-   - Port every section writer from `writepcrpro.js`, retaining sentence structure, comma handling, and branching logic for options like refusals, transport, or ROS findings.【F:soapcr.com/public/proversion/soapcrpro/writepcrpro.js†L1-L160】
+   - Port every section writer from `writepcrpro.js`, retaining sentence structure, comma handling, and branching logic for options like refusals, transport, or ROS findings.【F:legacy/soapcr/public/proversion/soapcrpro/writepcrpro.js†L1-L160】
    - Guarantee parity for special flows: Pertinent negatives, objective exam subsections, plan templates/cards, refusal protocols, and TOC/transport paragraphs.
 4. **Dropdown/catalog coverage**
    - Reuse option lists extracted into `docs/dropdown-options.json` so label/value pairs stay identical to the source UI.
@@ -29,7 +29,7 @@ This plan translates the archived SOAPCR/MatchCloud static export into a maintai
 ## 3. Implementation Phases
 
 ### Phase 0 — Repository Hygiene & Content Capture
-- Normalize repository layout (`legacy/` vs `modern/` directories) and document run instructions.
+- ✅ Normalize repository layout (`legacy/` vs `modern/` directories) and document run instructions.
 - Convert extracted artifacts (`field-map.json`, `dropdown-options.json`) into automated data generation scripts for future refreshes.
 
 ### Phase 1 — Data Model & CMS Schema
@@ -41,11 +41,11 @@ This plan translates the archived SOAPCR/MatchCloud static export into a maintai
 - Render sections dynamically from the JSON schema, supporting grouped checkboxes, nested accordions, and conditional visibility metadata.
 
 ### Phase 3 — Interaction Logic Parity
-- Rebuild helper hooks for address sync, birthdate/age calculation, gender mirroring, and condition-driven field display based on the legacy jQuery behaviors.【F:soapcr.com/public/proversion/soapcrpro/soapcrpro.js†L1-L120】
+- Rebuild helper hooks for address sync, birthdate/age calculation, gender mirroring, and condition-driven field display based on the legacy jQuery behaviors.【F:legacy/soapcr/public/proversion/soapcrpro/soapcrpro.js†L1-L120】
 - Implement What3Words/GPS linking placeholders (legacy API calls) with stubs or progressive enhancement.
 
 ### Phase 4 — Narrative Engine Port
-- Translate each `write*` function into modular TypeScript services that consume form state and emit narrative fragments while preserving punctuation helpers (`addComma`, `addReturn`, etc.).【F:soapcr.com/public/proversion/soapcrpro/writepcrpro.js†L1-L160】
+- Translate each `write*` function into modular TypeScript services that consume form state and emit narrative fragments while preserving punctuation helpers (`addComma`, `addReturn`, etc.).【F:legacy/soapcr/public/proversion/soapcrpro/writepcrpro.js†L1-L160】
 - Ensure plan cards and assessment-specific modules map to the same output text as in the legacy writer.
 
 ### Phase 5 — Regression Harness
@@ -60,9 +60,9 @@ This plan translates the archived SOAPCR/MatchCloud static export into a maintai
 ## 4. Gap Analysis & Additional Tasks
 
 - **Insurance/Incident removal impacts** — Confirm which legacy sections are intentionally omitted in the modern build and update narrative writer accordingly to avoid referencing missing inputs.
-- **Plan templates** — Map `PlanItems` definitions from `soapcrpro.js` into CMS data to retain quick-add treatment bundles.【F:soapcr.com/public/proversion/soapcrpro/soapcrpro.js†L1-L80】
+- **Plan templates** — Map `PlanItems` definitions from `soapcrpro.js` into CMS data to retain quick-add treatment bundles.【F:legacy/soapcr/public/proversion/soapcrpro/soapcrpro.js†L1-L80】
 - **Objective exam tables** — Ensure each exam subsection (Neuro, Respiratory, Assessment Specific variants) supports multiple simultaneous findings with accurate grammar.
-- **Pertinent negatives & denials** — Validate that every “denies” checkbox toggles the correct phrase order in the Subjective narrative.【F:soapcr.com/public/proversion/soapcrpro/writepcrpro.js†L700-L760】
+- **Pertinent negatives & denials** — Validate that every “denies” checkbox toggles the correct phrase order in the Subjective narrative.【F:legacy/soapcr/public/proversion/soapcrpro/writepcrpro.js†L700-L760】
 - **Export & printing** — Preserve print-ready styling and the ability to copy/export the narrative text area contents verbatim.
 - **Analytics & tracking** — Decide whether to keep or replace Google Analytics events triggered throughout the legacy code.
 
