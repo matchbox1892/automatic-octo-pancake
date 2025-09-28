@@ -10,13 +10,33 @@ const VitalSchema = z.object({
 
 export const SubjectiveSchema = z.object({
   chiefComplaint: z.string().optional(),
+  noChiefComplaint: z.boolean().default(false),
   historyProvider: z.string().optional(),
   symptoms: z.array(z.string()).default([]),
   painScale: z.string().optional(),
+  patientNarrative: z.string().optional(),
+  opqrstOnset: z.string().optional(),
+  opqrstProvokes: z.string().optional(),
+  opqrstQuality: z.string().optional(),
+  opqrstRadiates: z.string().optional(),
+  opqrstSeverityDescription: z.string().optional(),
+  opqrstTime: z.string().optional(),
+  historySimilar: z.string().optional(),
   notes: z.string().optional()
 });
 
 export const ObjectiveSchema = z.object({
+  age: z.string().optional(),
+  ageUnits: z.string().optional(),
+  gender: z.string().optional(),
+  weightKg: z.string().optional(),
+  weightLb: z.string().optional(),
+  generalImpression: z.string().optional(),
+  airwayStatus: z.string().optional(),
+  breathingStatus: z.string().optional(),
+  circulationStatus: z.string().optional(),
+  skinFindings: z.string().optional(),
+  neuroStatus: z.string().optional(),
   primaryImpression: z.string().optional(),
   secondaryImpression: z.string().optional(),
   vitals: z.array(VitalSchema).default([{}]),

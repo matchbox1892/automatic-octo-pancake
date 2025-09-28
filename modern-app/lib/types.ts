@@ -36,6 +36,10 @@ export type CheckboxGroupField = BaseField & {
   options: FieldOption[];
 };
 
+export type CheckboxField = BaseField & {
+  type: "checkbox";
+};
+
 export type ArrayField = BaseField & {
   type: "array";
   itemLabel: string;
@@ -43,7 +47,12 @@ export type ArrayField = BaseField & {
   itemFields: (TextField | SelectField | CheckboxGroupField)[];
 };
 
-export type Field = TextField | SelectField | CheckboxGroupField | ArrayField;
+export type Field =
+  | TextField
+  | SelectField
+  | CheckboxGroupField
+  | CheckboxField
+  | ArrayField;
 
 export type Section = {
   id: string;

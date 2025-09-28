@@ -12,8 +12,39 @@ export type NarrativeState = {
 
 export const useNarrativeStore = create<NarrativeState>((set) => ({
   formData: {
-    subjective: { chiefComplaint: "", historyProvider: "", symptoms: [], painScale: "", notes: "" },
-    objective: { primaryImpression: "", secondaryImpression: "", vitals: [], objectiveNotes: "" },
+    subjective: {
+      chiefComplaint: "",
+      noChiefComplaint: false,
+      historyProvider: "",
+      symptoms: [],
+      painScale: "",
+      patientNarrative: "",
+      opqrstOnset: "",
+      opqrstProvokes: "",
+      opqrstQuality: "",
+      opqrstRadiates: "",
+      opqrstSeverityDescription: "",
+      opqrstTime: "",
+      historySimilar: "",
+      notes: ""
+    },
+    objective: {
+      age: "",
+      ageUnits: "",
+      gender: "",
+      weightKg: "",
+      weightLb: "",
+      generalImpression: "",
+      airwayStatus: "",
+      breathingStatus: "",
+      circulationStatus: "",
+      skinFindings: "",
+      neuroStatus: "",
+      primaryImpression: "",
+      secondaryImpression: "",
+      vitals: [],
+      objectiveNotes: ""
+    },
     assessment: { summary: "", differential: "", clinicalFindings: [] },
     plan: {
       treatments: [],
