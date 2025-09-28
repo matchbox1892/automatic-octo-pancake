@@ -4,12 +4,12 @@
     {
       "id": "subjective",
       "heading": "S:",
-      "template": "{{#if subjective.chiefComplaintText}}Pt's chief complaint is {{subjective.chiefComplaintText}}.{{/if}}{{#if subjective.historyProviderText}} History provided by {{subjective.historyProviderText}}.{{/if}}{{#if subjective.symptomsList}} Pertinent symptoms include {{subjective.symptomsList}}.{{/if}}{{#if subjective.painScaleText}} Pain rated {{subjective.painScaleText}}/10.{{/if}}{{#if subjective.notes}}{{#if subjective.hasNarrative}} {{/if}}{{subjective.notes}}{{/if}}"
+      "template": "{{#if subjective.noComplaintText}}{{subjective.noComplaintText}}.{{else}}{{#if subjective.chiefComplaintText}}Pt's chief complaint is {{subjective.chiefComplaintText}}.{{/if}}{{/if}}{{#if subjective.historyProviderText}} History provided by {{subjective.historyProviderText}}.{{/if}}{{#if subjective.patientNarrative}} Patient states {{subjective.patientNarrative}}.{{/if}}{{#if subjective.pertinentPositivesList}} Pertinent positives include {{subjective.pertinentPositivesList}}.{{/if}}{{#if subjective.pertinentNegativesList}} Pertinent negatives include {{subjective.pertinentNegativesList}}.{{/if}}{{#if subjective.painScaleText}} Pain rated {{subjective.painScaleText}}/10.{{/if}}{{#if subjective.opqrstSummary}} OPQRST: {{subjective.opqrstSummary}}.{{/if}}{{#if subjective.similarHistoryText}} Similar history: {{subjective.similarHistoryText}}.{{/if}}{{#if subjective.notes}}{{#if subjective.hasNarrative}} {{/if}}{{subjective.notes}}{{/if}}"
     },
     {
       "id": "objective",
       "heading": "O:",
-      "template": "{{#if objective.primaryImpressionText}}{{objective.primaryImpressionText}}.{{/if}}{{#if objective.secondaryImpressionText}} Secondary impression: {{objective.secondaryImpressionText}}.{{/if}}{{#if objective.vitalsList}} Vitals: {{objective.vitalsList}}.{{/if}}{{#if objective.objectiveNotes}}{{#if objective.hasNarrative}} {{/if}}{{objective.objectiveNotes}}{{/if}}"
+      "template": "{{#if objective.demographics}} {{objective.demographics}}.{{/if}}{{#if objective.weightSummary}} {{objective.weightSummary}}.{{/if}}{{#if objective.primaryImpressionText}} {{objective.primaryImpressionText}}.{{/if}}{{#if objective.secondaryImpressionText}} Secondary impression: {{objective.secondaryImpressionText}}.{{/if}}{{#if objective.generalImpressionText}} General impression: {{objective.generalImpressionText}}.{{/if}}{{#if objective.abcsSummary}} ABCs: {{objective.abcsSummary}}.{{/if}}{{#if objective.skinFindingsText}} Skin: {{objective.skinFindingsText}}.{{/if}}{{#if objective.neuroStatusText}} Neuro: {{objective.neuroStatusText}}.{{/if}}{{#if objective.vitalsList}} Vitals: {{objective.vitalsList}}.{{/if}}{{#if objective.objectiveNotes}}{{#if objective.hasNarrative}} {{/if}}{{objective.objectiveNotes}}{{/if}}"
     },
     {
       "id": "assessment",

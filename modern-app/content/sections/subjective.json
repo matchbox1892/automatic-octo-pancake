@@ -10,6 +10,12 @@
       "placeholder": "Patient states..."
     },
     {
+      "id": "noChiefComplaint",
+      "type": "checkbox",
+      "label": "Patient reports no chief complaint",
+      "helperText": "Select if the patient denies any presenting complaint."
+    },
+    {
       "id": "historyProvider",
       "type": "select",
       "label": "History Provided By",
@@ -23,23 +29,163 @@
       "placeholder": "Select contributor"
     },
     {
-      "id": "symptoms",
+      "id": "patientNarrative",
+      "type": "textarea",
+      "label": "Patient Statements",
+      "rows": 3,
+      "helperText": "Summarize the patient's own description of events."
+    },
+    {
+      "id": "pertinentPositives",
       "type": "checkbox-group",
-      "label": "Pertinent Symptoms",
+      "label": "Pertinent Positives",
+      "helperText": "Select symptoms or findings the patient affirms.",
       "options": [
-        { "value": "sob", "label": "Shortness of breath" },
         { "value": "chestPain", "label": "Chest pain" },
+        { "value": "shortnessOfBreath", "label": "Shortness of breath" },
+        { "value": "palpitations", "label": "Palpitations" },
+        { "value": "dizziness", "label": "Dizziness" },
+        { "value": "syncope", "label": "Syncope" },
+        { "value": "weakness", "label": "Generalized weakness" },
         { "value": "nausea", "label": "Nausea" },
         { "value": "vomiting", "label": "Vomiting" },
-        { "value": "weakness", "label": "Weakness" },
-        { "value": "dizziness", "label": "Dizziness" }
+        { "value": "abdominalPain", "label": "Abdominal pain" },
+        { "value": "headache", "label": "Headache" },
+        { "value": "fever", "label": "Fever or chills" },
+        { "value": "cough", "label": "Cough" }
+      ]
+    },
+    {
+      "id": "pertinentNegatives",
+      "type": "checkbox-group",
+      "label": "Pertinent Negatives",
+      "helperText": "Select key symptoms the patient specifically denies.",
+      "options": [
+        { "value": "deniesChestPain", "label": "Denies chest pain" },
+        { "value": "deniesShortnessOfBreath", "label": "Denies shortness of breath" },
+        { "value": "deniesPalpitations", "label": "Denies palpitations" },
+        { "value": "deniesDizziness", "label": "Denies dizziness" },
+        { "value": "deniesSyncope", "label": "Denies syncope" },
+        { "value": "deniesWeakness", "label": "Denies weakness" },
+        { "value": "deniesNausea", "label": "Denies nausea" },
+        { "value": "deniesVomiting", "label": "Denies vomiting" },
+        { "value": "deniesAbdominalPain", "label": "Denies abdominal pain" },
+        { "value": "deniesHeadache", "label": "Denies headache" },
+        { "value": "deniesFever", "label": "Denies fever or chills" },
+        { "value": "deniesCough", "label": "Denies cough" }
       ]
     },
     {
       "id": "painScale",
-      "type": "number",
+      "type": "radio-group",
       "label": "Pain Scale (0-10)",
-      "placeholder": "0-10"
+      "helperText": "Select the patient's reported pain score.",
+      "options": [
+        { "value": "0", "label": "0" },
+        { "value": "1", "label": "1" },
+        { "value": "2", "label": "2" },
+        { "value": "3", "label": "3" },
+        { "value": "4", "label": "4" },
+        { "value": "5", "label": "5" },
+        { "value": "6", "label": "6" },
+        { "value": "7", "label": "7" },
+        { "value": "8", "label": "8" },
+        { "value": "9", "label": "9" },
+        { "value": "10", "label": "10" }
+      ]
+    },
+    {
+      "id": "opqrstOnset",
+      "type": "select",
+      "label": "OPQRST – Onset",
+      "placeholder": "Select onset description",
+      "options": [
+        { "value": "suddenAtRest", "label": "sudden at rest" },
+        { "value": "gradual", "label": "gradual" },
+        { "value": "duringExertion", "label": "during exertion" },
+        { "value": "uponAwakening", "label": "upon awakening" },
+        { "value": "unknown", "label": "unknown" }
+      ]
+    },
+    {
+      "id": "opqrstProvokes",
+      "type": "select",
+      "label": "OPQRST – Provokes/Relieves",
+      "placeholder": "Select provocation pattern",
+      "options": [
+        { "value": "worseWithMovement", "label": "worsened by movement" },
+        { "value": "worseWithPalpation", "label": "worsened with palpation" },
+        { "value": "worseWithExertion", "label": "worsened with exertion" },
+        { "value": "relievedWithRest", "label": "relieved with rest" },
+        { "value": "relievedWithMeds", "label": "relieved with prescribed medications" },
+        { "value": "noChange", "label": "no change with provocation" },
+        { "value": "unknown", "label": "provoking factors unknown" }
+      ]
+    },
+    {
+      "id": "opqrstQuality",
+      "type": "select",
+      "label": "OPQRST – Quality",
+      "placeholder": "Select quality description",
+      "options": [
+        { "value": "sharp", "label": "sharp, stabbing discomfort" },
+        { "value": "pressure", "label": "pressure-like discomfort" },
+        { "value": "burning", "label": "burning sensation" },
+        { "value": "aching", "label": "aching discomfort" },
+        { "value": "cramping", "label": "cramping sensation" },
+        { "value": "tearing", "label": "tearing sensation" },
+        { "value": "unableToDescribe", "label": "unable to describe quality" }
+      ]
+    },
+    {
+      "id": "opqrstRadiates",
+      "type": "select",
+      "label": "OPQRST – Radiation",
+      "placeholder": "Select radiation pattern",
+      "options": [
+        { "value": "none", "label": "no radiation" },
+        { "value": "leftArm", "label": "radiates to left arm" },
+        { "value": "rightArm", "label": "radiates to right arm" },
+        { "value": "jaw", "label": "radiates to jaw" },
+        { "value": "back", "label": "radiates to back" },
+        { "value": "abdomen", "label": "radiates to abdomen" },
+        { "value": "unknown", "label": "radiation unknown" }
+      ]
+    },
+    {
+      "id": "opqrstSeverityDescription",
+      "type": "select",
+      "label": "OPQRST – Severity Description",
+      "placeholder": "Select severity description",
+      "options": [
+        { "value": "mild", "label": "mild" },
+        { "value": "moderate", "label": "moderate" },
+        { "value": "severe", "label": "severe" },
+        { "value": "improving", "label": "improving" },
+        { "value": "worsening", "label": "worsening" },
+        { "value": "unchanged", "label": "unchanged" },
+        { "value": "unableToRate", "label": "unable to rate" }
+      ]
+    },
+    {
+      "id": "opqrstTime",
+      "type": "select",
+      "label": "OPQRST – Time",
+      "placeholder": "Select duration pattern",
+      "options": [
+        { "value": "lessThanHour", "label": "less than 1 hour ago" },
+        { "value": "oneToThreeHours", "label": "for 1-3 hours" },
+        { "value": "greaterThanDay", "label": "for more than 24 hours" },
+        { "value": "intermittent", "label": "intermittent since onset" },
+        { "value": "constant", "label": "constant since onset" },
+        { "value": "unknown", "label": "unknown" }
+      ]
+    },
+    {
+      "id": "historySimilar",
+      "type": "text",
+      "label": "History of Similar Events",
+      "placeholder": "Describe prior similar episodes"
     },
     {
       "id": "notes",

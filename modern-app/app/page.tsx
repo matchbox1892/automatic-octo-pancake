@@ -64,10 +64,12 @@ export default function HomePage() {
   }, [formMethods, setFormData, setNarrative, markValidated]);
 
   const phases = useMemo(() => {
+    const hasChiefComplaint =
+      Boolean(formData.subjective.noChiefComplaint) ||
+      Boolean(formData.subjective.chiefComplaint?.trim());
     const completion = {
       foundation:
-        Boolean(formData.subjective.chiefComplaint) &&
-        Boolean(formData.objective.primaryImpression),
+        hasChiefComplaint && Boolean(formData.objective.primaryImpression),
       assessment:
         Boolean(formData.assessment.summary) || formData.assessment.clinicalFindings.length > 0,
       plan: Boolean(formData.plan.transportMode) && Boolean(narrative)
