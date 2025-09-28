@@ -6,7 +6,18 @@ export const defaultFormValues: NarrativeFormData = {
     historyProvider: "",
     symptoms: [],
     painScale: "",
-    notes: ""
+    notes: "",
+    opqrstOnset: "",
+    opqrstProvocation: "",
+    opqrstQuality: "",
+    opqrstRadiation: "",
+    opqrstSeverity: "",
+    opqrstTimeCourse: "",
+    sampleAllergies: "",
+    sampleMedications: "",
+    samplePastHistory: "",
+    sampleLastIntake: "",
+    sampleEvents: ""
   },
   objective: {
     primaryImpression: "",

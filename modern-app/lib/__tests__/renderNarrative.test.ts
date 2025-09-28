@@ -55,4 +55,33 @@ describe("renderNarrative", () => {
       "P: Treatments provided include aspirin. Transported ALS to Meritus Medical Center."
     );
   });
+
+  it("includes OPQRST and SAMPLE narratives when provided", () => {
+    const data = {
+      ...defaultFormValues,
+      subjective: {
+        ...defaultFormValues.subjective,
+        opqrstOnset: "Sudden onset at rest",
+        opqrstProvocation: "Worsens with exertion",
+        opqrstQuality: "Pressure-like",
+        opqrstRadiation: "Radiates to left arm",
+        opqrstSeverity: "Severe per patient",
+        opqrstTimeCourse: "Intermittent since yesterday",
+        sampleAllergies: "NKDA",
+        sampleMedications: "Lisinopril",
+        samplePastHistory: "Hypertension",
+        sampleLastIntake: "Breakfast at 0700",
+        sampleEvents: "Onset while watching TV"
+      }
+    };
+
+    const narrative = renderNarrative(data);
+    const subjectiveSection = narrative.split("\n\n")[0];
+    expect(subjectiveSection).toBe(
+      "S: OPQRST: Onset sudden onset at rest; Provocation worsens with exertion; Quality pressure-like; Radiatio"
+      + "n radiates to left arm; Severity severe per patient; Time intermittent since yesterday. SAMPLE: Allergies"
+      + " NKDA; Medications lisinopril; Past hx hypertension; Last intake breakfast at 0700; Events onset while wa"
+      + "tching TV."
+    );
+  });
 });
