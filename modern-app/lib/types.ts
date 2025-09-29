@@ -31,19 +31,34 @@ export type SelectField = BaseField & {
   options: FieldOption[];
 };
 
+export type RadioGroupField = BaseField & {
+  type: "radio-group";
+  options: FieldOption[];
+};
+
 export type CheckboxGroupField = BaseField & {
   type: "checkbox-group";
   options: FieldOption[];
+};
+
+export type CheckboxField = BaseField & {
+  type: "checkbox";
 };
 
 export type ArrayField = BaseField & {
   type: "array";
   itemLabel: string;
   addButtonLabel?: string;
-  itemFields: (TextField | SelectField | CheckboxGroupField)[];
+  itemFields: (TextField | SelectField | CheckboxGroupField | RadioGroupField)[];
 };
 
-export type Field = TextField | SelectField | CheckboxGroupField | ArrayField;
+export type Field =
+  | TextField
+  | SelectField
+  | RadioGroupField
+  | CheckboxGroupField
+  | CheckboxField
+  | ArrayField;
 
 export type Section = {
   id: string;
