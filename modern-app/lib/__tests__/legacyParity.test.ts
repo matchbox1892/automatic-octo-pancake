@@ -14,8 +14,12 @@ class LocalResourceLoader extends ResourceLoader {
   fetch(url: string) {
     if (url.startsWith("http://legacy.local/")) {
       const relative = url.replace("http://legacy.local/", "");
-      const filePath = path.join(this.root, relative);
-      if (fs.existsSync(filePath)) {
+      const rootPath = path.resolve(this.root);
+      const filePath = path.resolve(rootPath, relative);
+      const isWithinRoot =
+        filePath === rootPath || filePath.startsWith(`${rootPath}${path.sep}`);
+
+      if (isWithinRoot && fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
         return Promise.resolve(fs.readFileSync(filePath));
       }
     }

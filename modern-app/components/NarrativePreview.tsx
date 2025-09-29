@@ -6,15 +6,25 @@ import { useNarrativeStore } from "@/lib/store";
 export function NarrativePreview() {
   const narrative = useNarrativeStore((state) => state.narrative);
   const [copied, setCopied] = useState(false);
+  const [copyError, setCopyError] = useState<string | null>(null);
 
   const handleCopy = async () => {
     if (!narrative) return;
     try {
       await navigator.clipboard.writeText(narrative);
       setCopied(true);
+      setCopyError(null);
       setTimeout(() => setCopied(false), 2000);
     } catch (error) {
-      console.error("Unable to copy narrative", error);
+      console.error("Failed to copy narrative to clipboard", error);
+      const errorMessage =
+        error instanceof Error ? error.message : String(error ?? "");
+      setCopyError(
+        errorMessage
+          ? `Failed to copy narrative to clipboard: ${errorMessage}`
+          : "Failed to copy narrative to clipboard."
+      );
+      setCopied(false);
     }
   };
 
@@ -39,6 +49,11 @@ export function NarrativePreview() {
       >
         {copied ? "Copied!" : "Copy Narrative"}
       </button>
+      {copyError ? (
+        <p className="text-sm text-red-600" role="status">
+          {copyError}
+        </p>
+      ) : null}
     </div>
   );
 }
